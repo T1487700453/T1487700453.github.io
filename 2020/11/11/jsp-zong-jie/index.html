@@ -1,0 +1,1830 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="动态页面">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JSP总结 | 沧海桑田不负你</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">沧海桑田不负你</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">沧海桑田不负你</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JSP总结</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/">
+                                <span class="chip bg-color">动态页面</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/" class="post-category">
+                                前端页面
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-11-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-jsp是什么"><a href="#1-jsp是什么" class="headerlink" title="1.jsp是什么"></a>1.jsp是什么</h2><pre class=" language-java"><code class="language-java">jsp的全称    Java Server Pages        是一种动态网页开发技术
+    ​jsp servlet php asp 等属于动态网页技术
+    ​jsp页面是以 <span class="token punctuation">.</span>jsp 结尾的文件
+
+    ​<span class="token punctuation">.</span>html 文件是静态页面
+    ​<span class="token punctuation">.</span>jsp  文件是动态页面
+
+    ​jsp页面允许我们在HTML代码中嵌入java代码，这样我们就可以在HTML中使用java代码来完成的功      能了
+    ​简单的理解，jsp就是就是HTML页面 <span class="token operator">+</span> java代码
+    ​但是jsp中能写的内容还不止这些，可以包含如下内容：
+        ​HTML标签
+        ​css
+        ​javascript
+        ​java代码
+        ​EL表达式
+        ​引入并使用其他标签库
+            例：jst1标签库、struts2标签库、spring框架标签库 等
+    ​所以jsp页面里面除了能写之前在HTML里面写东西之外，还可以写很多和java相关的对象，java代        码、EL表达式、动态标签库等（这些对象的本质都是执行java代码）</code></pre>
+<blockquote>
+<p>【注意】jsp页面中可以只有java代码，也可以一句java代码也没有</p>
+</blockquote>
+<h2 id="2-jsp的运行"><a href="#2-jsp的运行" class="headerlink" title="2.jsp的运行"></a>2.jsp的运行</h2><pre class=" language-java"><code class="language-java">    ​浏览器可以直接运行HTML页面，但是不能直接运行jsp页面，jsp是需要在web容器中运行（拥有jsp引擎，Jasper<span class="token punctuation">.</span>jar）
+        例：    tomcat服务器
+    ​所以jsp是运行在服务端的，运行完之后，把动态生成的HTML页面再使用io流写回给浏览器，浏览器接收并且解析后再呈现出来效果</code></pre>
+<h2 id="3-jsp和servlet的关系"><a href="#3-jsp和servlet的关系" class="headerlink" title="3.jsp和servlet的关系"></a>3.jsp和servlet的关系</h2><pre class=" language-java"><code class="language-java">    ​简单的讲，一个jsp页面就是一个servlet
+    ​jsp页面第一次被访问的时候，会被tomcat服务器编译成一个java类，这个java默认继承HTTPJSPBase类，而HTTPJSPBase类是HttpServlet的子类
+    ​我们编写的jsp页面最终就被tomcat服务器编译成了一个HttpServlet的子类，所以说jsp本身就是一个servlet，那么jsp为什么是需要运行在tomcat服务器中原因也就很好理解了
+    ​jsp页面被tomcat服务器编译成的java文件及其<span class="token keyword">class</span>文件保存在tomcat服务器里面的work目录中，在这里的代码中，我们还可以看见它是如何使用io流把生成的HTML页面代码一行一行写回给浏览器的</code></pre>
+<h3 id="work"><a href="#work" class="headerlink" title="work"></a>work</h3><pre class=" language-java"><code class="language-java">    tomcat中lib目录中的 Jasper<span class="token punctuation">.</span>jar 相关API里面封装了一些操作，可以把jsp页面编译为java文件以及<span class="token keyword">class</span>文件
+    例：
+    ​桌面上手动有一个web项目：web<span class="token operator">-</span>test
+    ​项目中有一个jsp页面：hello<span class="token punctuation">.</span>jsp
+    ​运行下面java代码把web项目中的jsp页面编译成java文件和<span class="token keyword">class</span>文件
+    【注意】web项目的基本结构
+
+    运行环境
+    ​如果是在web项目运行下面代码，需要额外加入两个jar包：（web项目中已经有了tomcat中的lib    里面的jar了）
+        ant<span class="token operator">-</span><span class="token number">1.10</span><span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">.</span>jar
+        tomcat<span class="token operator">-</span>juli<span class="token operator">-</span><span class="token number">8.5</span><span class="token punctuation">.</span><span class="token number">38</span><span class="token punctuation">.</span>jar
+    ​如果是在java项目中运行下面代码，至少需要加入以下jar包：
+        tomcat<span class="token operator">-</span>juli<span class="token operator">-</span><span class="token number">8.5</span><span class="token punctuation">.</span><span class="token number">38</span><span class="token punctuation">.</span>jar
+        ant<span class="token operator">-</span><span class="token number">1.10</span><span class="token punctuation">.</span><span class="token number">6</span><span class="token punctuation">.</span>jar
+        jasper<span class="token punctuation">.</span>jar
+        servlet<span class="token operator">-</span>api<span class="token punctuation">.</span>jar
+        tomcat<span class="token operator">-</span>api<span class="token punctuation">.</span>jar
+        tomcat<span class="token operator">-</span>util<span class="token punctuation">.</span>jar
+        jsp<span class="token operator">-</span>api<span class="token punctuation">.</span>jar
+        el<span class="token operator">-</span>api<span class="token punctuation">.</span>jar
+        ecj<span class="token operator">-</span><span class="token number">4.6</span><span class="token punctuation">.</span><span class="token number">3</span><span class="token punctuation">.</span>jar
+
+    示例：
+    <span class="token keyword">package</span> com<span class="token punctuation">.</span>briup<span class="token punctuation">.</span>test<span class="token punctuation">;</span>
+    <span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>jasper<span class="token punctuation">.</span>JspC<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestCompiler</span> <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">jspcTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>  
+                JspC jspc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JspC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+                <span class="token comment" spellcheck="true">//web应用的root目录  </span>
+                jspc<span class="token punctuation">.</span><span class="token function">setUriroot</span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\ASUS\\Desktop\\web-test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//.java文件和.class文件的输出目录  </span>
+                jspc<span class="token punctuation">.</span><span class="token function">setOutputDir</span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\ASUS\\Desktop\\web-test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//要编译的jsp</span>
+                jspc<span class="token punctuation">.</span><span class="token function">setJspFiles</span><span class="token punctuation">(</span><span class="token string">"hello.jsp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+                <span class="token comment" spellcheck="true">//false或不指定的话只生成.java文件  </span>
+                jspc<span class="token punctuation">.</span><span class="token function">setCompile</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                jspc<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+            TestCompiler t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TestCompiler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+            t<span class="token punctuation">.</span><span class="token function">jspcTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>
+</code></pre>
+<h2 id="4-jsp的生命周期"><a href="#4-jsp的生命周期" class="headerlink" title="4.jsp的生命周期"></a>4.jsp的生命周期</h2><h3 id="1）编译阶段"><a href="#1）编译阶段" class="headerlink" title="1）编译阶段"></a>1）编译阶段</h3><pre class=" language-java"><code class="language-java">    客户端第一次访问jsp的时候，服务器会把这个jsp页面翻译成对应的java文件，然后把java文件编译成对应的<span class="token keyword">class</span>文件
+    hello<span class="token punctuation">.</span>jsp  <span class="token operator">--</span><span class="token operator">-</span><span class="token operator">></span>  hello_jsp<span class="token punctuation">.</span>java  <span class="token operator">--</span><span class="token operator">-</span><span class="token operator">></span>  hello_jsp<span class="token punctuation">.</span><span class="token keyword">class</span>
+    观察这个java文件的内容可知，这就是一个servlet</code></pre>
+<h3 id="2）初始化阶段"><a href="#2）初始化阶段" class="headerlink" title="2）初始化阶段"></a>2）初始化阶段</h3><pre class=" language-java"><code class="language-java">    ​客户端第一次访问jsp页面，在服务器把jsp翻译成java文件并编译<span class="token keyword">class</span>文件后，服务器会加载这个<span class="token keyword">class</span>文件内容，并且创建出此servlet对象（因此jsp就是一个servlet），然后调用这个servlet对象中的init方法进行初始化
+    ​如果我们想给jsp进行自定义的初始化内容，只要在【jsp声明】中重写 <span class="token function">jspInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法即可。
+    ​【注意】不要重写 <span class="token function">_jspInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>因为jsp编译成java类的时候，会自动重写这个方法，观察编译后的java代码就可以知道
+     例：
+        <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">jspInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我的jsp自定义初始化"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token operator">%</span><span class="token operator">></span></code></pre>
+<h3 id="3）执行阶段"><a href="#3）执行阶段" class="headerlink" title="3）执行阶段"></a>3）执行阶段</h3><pre class=" language-java"><code class="language-java">    ​客户端访问jsp页面的时候，服务器会调用其对应的servlet对象中的一个指定方法 <span class="token function">_jspService</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span>
+    ​就是在这个 <span class="token function">_jspService</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span>方法中使用io流，把动态生成的HTML一行一行写给了浏览器
+
+    ​【注意】本来是调用servlet对象中的service方法的，但是在HTTPJSPBase中重写的service方法中又调用了这个 <span class="token function">_jspService</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span> 方法</code></pre>
+<h3 id="4）销毁阶段"><a href="#4）销毁阶段" class="headerlink" title="4）销毁阶段"></a>4）销毁阶段</h3><pre class=" language-java"><code class="language-java">    ​当服务器正关闭的时候，jsp对应的servlet对象会被销毁，并且调用servlet中的destroy方法
+    ​如果我们在jsp对应的servlet对象销毁时完成一些工作，只要在jsp声明中重写 <span class="token function">jspDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     方法即可
+       例：
+        <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">jspDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我的jsp进行销毁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token operator">%</span><span class="token operator">></span>
+</code></pre>
+<h3 id="客户端访问jsp页面的特点"><a href="#客户端访问jsp页面的特点" class="headerlink" title="客户端访问jsp页面的特点"></a>客户端访问jsp页面的特点</h3><pre class=" language-java"><code class="language-java">    通过上述jsp的生命周期可知，写完一个jsp项目之后，第一次部署运行的时候，整个项目的运行速度会慢一些，因为第一次访问运行jsp的时候，需要先翻译成 <span class="token punctuation">.</span>java 文件然后再翻译成 <span class="token punctuation">.</span><span class="token keyword">class</span>文件 ，最后再运行，这个过程会耗费一些时间，但是第二次访问运行的时候就会比较快了</code></pre>
+<h2 id="5-jsp页面中嵌入java代码"><a href="#5-jsp页面中嵌入java代码" class="headerlink" title="5.jsp页面中嵌入java代码"></a>5.jsp页面中嵌入java代码</h2><pre class=" language-java"><code class="language-java">jsp的脚本元素    jsp的指令元素    jsp的动作元素</code></pre>
+<h3 id="1）jsp的脚本元素（直接嵌入java代码）"><a href="#1）jsp的脚本元素（直接嵌入java代码）" class="headerlink" title="1）jsp的脚本元素（直接嵌入java代码）"></a>1）jsp的脚本元素（直接嵌入java代码）</h3><h4 id="第一种：表达式（expression）"><a href="#第一种：表达式（expression）" class="headerlink" title="第一种：表达式（expression）"></a>第一种：表达式（expression）</h4><pre class=" language-java"><code class="language-java">形式：        <span class="token operator">&lt;</span><span class="token operator">%=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token operator">></span>
+例：    
+    <span class="token operator">&lt;</span><span class="token operator">%=</span><span class="token string">"hello"</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%=</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span> <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%=</span>s<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
+
+    ​将来翻译到java文件中的位置
+        _jspService 方法中的 out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> 里面的参数
+
+    ​例如上面的三个例子会翻译成
+        out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ​所以 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span>这个方法的参数可以写什么，那么我们这个jsp页面中的表达式里面就可以写什么</code></pre>
+<h4 id="第二种：脚本（scripttlet"><a href="#第二种：脚本（scripttlet" class="headerlink" title="第二种：脚本（scripttlet)"></a>第二种：脚本（scripttlet)</h4><pre class=" language-java"><code class="language-java">形式：        <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token operator">></span>
+          或
+          <span class="token operator">&lt;</span><span class="token operator">%</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+          <span class="token operator">%</span><span class="token operator">></span>
+   例：
+    <span class="token operator">&lt;</span><span class="token operator">%</span>
+        Student s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String name <span class="token operator">=</span> <span class="token string">"tom"</span><span class="token punctuation">;</span>
+        String username <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        List<span class="token operator">&lt;</span>String<span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">%</span><span class="token operator">></span>
+
+   将来翻译到java文件中的位置
+        ​脚本中的代码将来会被直接翻译到 _jspService 这个方法中
+        ​在一个普通的方法中我们可以写什么样的代码，那么在脚本中就可以写什么样的代码
+        ​【注意】脚本中所写的代码，代码的最后是要加上 <span class="token punctuation">;</span> 分号的，因为我们在一个方法里面所写的         每一句代码后面都要加 <span class="token punctuation">;</span> 分号
+        ​在脚本声明的变量，我们是可以在表达式里面使用的，但是要注意要先声明在使用变量。
+         只要查看脚本和表达式方别翻译到java文件中的位置，就可以很清楚的认识到这点</code></pre>
+<h4 id="第三种：声明（declaration）"><a href="#第三种：声明（declaration）" class="headerlink" title="第三种：声明（declaration）"></a>第三种：声明（declaration）</h4><pre class=" language-java"><code class="language-java">形式：        <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+          <span class="token operator">%</span><span class="token operator">></span>
+    例：
+        <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
+            <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+            <span class="token keyword">public</span> String <span class="token function">go</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello word"</span> <span class="token operator">+</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token string">"this is go()"</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token operator">%</span><span class="token operator">></span>
+    将来翻译到java文件中的位置：
+        ​直接将声明中的代码翻译到java文件里面所定义的类中
+        ​所以我们直接可以在一个类中写什么，就可以在声明中写什么
+            一般在声明中去定义一些类中的成员变量或者方法
+   【注意】这里面的代码，定义变量的时候要加 <span class="token punctuation">;</span> 分号<span class="token punctuation">,</span>
+                     定义方法的时候不用加 <span class="token punctuation">;</span> 分号，
+          这是和我们写一个java类语法是一样的</code></pre>
+<h3 id="2）jsp的指令元素"><a href="#2）jsp的指令元素" class="headerlink" title="2）jsp的指令元素"></a>2）jsp的指令元素</h3><pre class=" language-java"><code class="language-java">    jsp的指令是给jsp引擎看的，让jsp引擎在翻译jsp页面成java文件的时候，知道需要注意哪些地方的设置
+    例：
+        ​页面中的编码
+        ​页面中脚本里面所用的编程语言
+        ​翻译的java文件中需要引入哪些其他包下的java类 等<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    写法：        <span class="token operator">&lt;</span><span class="token operator">%</span>@指令名字 属性<span class="token operator">=</span><span class="token string">"值"</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token operator">></span>
+
+    指令包含page  include  taglib 三种</code></pre>
+<h4 id="page-指令"><a href="#page-指令" class="headerlink" title="page 指令"></a>page 指令</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//表示当前页面中的编程语言是java，目前这个属性值只能写成java</span>
+    Language <span class="token operator">=</span> <span class="token string">"java"</span>
+
+<span class="token comment" spellcheck="true">//在当前页面中要引入哪些包下的类</span>
+    <span class="token keyword">import</span> <span class="token operator">=</span> <span class="token string">"java.util.HashMap"</span>
+    <span class="token keyword">import</span> <span class="token operator">=</span> <span class="token string">"java.util.HashMap,java.sql.Connection"</span>
+
+<span class="token comment" spellcheck="true">//设置jsp页面文件保存时候所用的编码</span>
+    pageEncoding <span class="token operator">=</span> <span class="token string">"UTF-8"</span>
+
+<span class="token comment" spellcheck="true">//设置服务器将来使用io把jsp页面内容一行一行的输出给浏览器的时候，使用什么编码向浏览器输出         contentType = "text/html;charset=UTF-8"</span>
+
+<span class="token comment" spellcheck="true">//设置jsp页面被翻译成java文件的时候，java文件中的类要继承哪个父类。这个属性不用设置，jsp引擎会给它一个默认的父类去继承的</span>
+    <span class="token keyword">extends</span> <span class="token operator">=</span> <span class="token string">""</span>
+
+<span class="token comment" spellcheck="true">//设置当前这个jsp页面是否支持session对象的使用        默认是支持的</span>
+    session <span class="token operator">=</span> <span class="token string">"true"</span>
+
+<span class="token comment" spellcheck="true">//设置jsp页面是否是线程安全的</span>
+    isThreadSafe <span class="token operator">=</span> <span class="token string">"true"</span>
+
+<span class="token comment" spellcheck="true">//如果a.jsp页面中设置了errorPage = "b,jsp"，那么a.jsp页面在运行的时候一旦出错，就会自动跳转到b.jsp里面</span>
+    errorPage <span class="token operator">=</span> <span class="token string">""</span>
+
+<span class="token comment" spellcheck="true">//如果一个页面中设置了isErrorPage = "true",那么就表示这个页面是用来专门显示错误信息的面。   然后在这个页面中就能够使用到隐藏对象exception来显示出错误的信息了（需要使用jsp的内置对象）</span>
+    isErrorPage <span class="token operator">=</span> <span class="token string">""</span></code></pre>
+<h4 id="include-指令"><a href="#include-指令" class="headerlink" title="include 指令"></a>include 指令</h4><pre class=" language-java"><code class="language-java">写法：        <span class="token operator">&lt;</span><span class="token operator">%</span>@ include file <span class="token operator">=</span> <span class="token string">""</span> <span class="token operator">%</span><span class="token operator">></span>
+作用：
+    ​在当前页面中使用include指令可以把另一个页面的内容引入到当前页面
+    ​一个页面包含<span class="token operator">/</span>引入另一个页面有两种方式：
+        ​静态包含    <span class="token operator">&lt;</span><span class="token operator">%</span>@ include file <span class="token operator">=</span> <span class="token string">""</span> <span class="token operator">%</span><span class="token operator">></span> 
+        ​动态包含    <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>include page <span class="token operator">=</span> <span class="token string">""</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>include<span class="token operator">></span>
+静态包含特点：
+    ​a<span class="token punctuation">.</span>jsp页面中静态包含了b<span class="token punctuation">.</span>jsp页面，那么在翻译期间，jsp引擎在翻译a<span class="token punctuation">.</span>jsp成为一个              a_jsp<span class="token punctuation">.</span>java文件的时候，发现jsp页面中有include指令，这时候jsp引擎就会把被包含耳钉页面       b<span class="token punctuation">.</span>jsp中的内容原封不动的拿到 a_jsp<span class="token punctuation">.</span>java中，然后用io流输出出去</code></pre>
+<h4 id="taglib-指令"><a href="#taglib-指令" class="headerlink" title="taglib 指令"></a>taglib 指令</h4><pre class=" language-java"><code class="language-java">作用：
+    在当前jsp页面中引入一些特殊的标签库
+    例：
+        ​jstl标签库
+        ​struts2标签库
+        ​spring标签库</code></pre>
+<h3 id="3）jsp的动作元素"><a href="#3）jsp的动作元素" class="headerlink" title="3）jsp的动作元素"></a>3）jsp的动作元素</h3><pre class=" language-java"><code class="language-java">    <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>useBean id <span class="token operator">=</span> <span class="token string">"s"</span> <span class="token keyword">class</span> <span class="token operator">=</span> <span class="token string">"com.briup.bean.Student"</span> scope <span class="token operator">=</span> <span class="token string">"page"</span><span class="token operator">></span>        <span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>useBean<span class="token operator">></span>
+相当于代码：
+    <span class="token operator">&lt;</span><span class="token operator">%</span>
+        Student s <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        s <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>pageContext<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>s <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            pageContext<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token operator">%</span><span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>setProperty property <span class="token operator">=</span> <span class="token string">"name"</span> value <span class="token operator">=</span> <span class="token string">"tom"</span> name <span class="token operator">=</span> <span class="token string">"s"</span> <span class="token operator">/</span><span class="token operator">></span>
+相当于代码：
+       <span class="token operator">&lt;</span><span class="token operator">%</span>
+        Student s <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>pageContext<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"tom"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">%</span><span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>getProperty property <span class="token operator">=</span> <span class="token string">"name"</span> name <span class="token operator">=</span> <span class="token string">"s"</span> <span class="token operator">/</span><span class="token operator">></span>
+相当于代码：
+    <span class="token operator">&lt;</span><span class="token operator">%</span>
+        Student s <span class="token operator">=</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span>pageContext<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"s"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">%</span><span class="token operator">></span>   
+
+    <span class="token comment" spellcheck="true">//页面跳转</span>
+        <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>forward page <span class="token operator">=</span> <span class="token string">"target.jsp"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>forward<span class="token operator">></span>
+    <span class="token comment" spellcheck="true">//页面跳转的同时还可以传参数  </span>
+        <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>forward page<span class="token operator">=</span><span class="token string">"target.jsp?name=tom"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>forward<span class="token operator">></span>
+        或
+        <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>forward page <span class="token operator">=</span> <span class="token string">"target.jsp"</span><span class="token operator">></span>
+            <span class="token comment" spellcheck="true">//这个动作元素专门是传参数使用的</span>
+            <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>param value <span class="token operator">=</span> <span class="token string">"tom"</span> name <span class="token operator">=</span> <span class="token string">"name"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>forward<span class="token operator">></span>     
+
+
+     <span class="token comment" spellcheck="true">//使用jsp的动作元素向浏览器输出一个标签</span>
+        <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>element name <span class="token operator">=</span> <span class="token string">"font"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>attribute name <span class="token operator">=</span> <span class="token string">"color"</span><span class="token operator">></span>blue<span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>attribute<span class="token operator">></span>
+            <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>body<span class="token operator">></span>hello world<span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>body<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>element<span class="token operator">></span>
+     这个效果相当于在页面代码中直接写上
+        <span class="token operator">&lt;</span>font color <span class="token operator">=</span> <span class="token string">"blue"</span><span class="token operator">></span>hello world<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span>
+        或
+        <span class="token operator">&lt;</span><span class="token operator">%</span>
+               out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"&lt;font color='blue'>hello world&lt;/font>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token operator">%</span><span class="token operator">></span></code></pre>
+<h4 id="动态包含"><a href="#动态包含" class="headerlink" title="动态包含"></a>动态包含</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//动态包含</span>
+    <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>include page <span class="token operator">=</span> <span class="token string">"foot.jsp"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>param value <span class="token operator">=</span> <span class="token string">"jack"</span> name <span class="token operator">=</span> <span class="token string">"name"</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>include<span class="token operator">></span>        </code></pre>
+<blockquote>
+<p>【注意】动态包含不能使用 url?name=tom这种传参方式</p>
+</blockquote>
+<h4 id="动态包含特点"><a href="#动态包含特点" class="headerlink" title="动态包含特点"></a>动态包含特点</h4><pre class=" language-java"><code class="language-java">在把jsp文件翻译成java文件的期间，动态包含并不会去把包含的页面原封不动的拿过来
+​而是会把动态包含这个标签翻译成一个方法的调用
+​将来运行页面调用到这个方法的时候才会去拿被包含页面的内容
+​同时还可以给动态包含的页面传参数
+​静态包含是不能传参数的</code></pre>
+<blockquote>
+<p>【注意】静态包含的执行效率高于动态包含的执行效率</p>
+</blockquote>
+<h2 id="6-errorPage与isErrorPage的区别-面试常考"><a href="#6-errorPage与isErrorPage的区别-面试常考" class="headerlink" title="6.errorPage与isErrorPage的区别(面试常考)"></a>6.errorPage与isErrorPage的区别(面试常考)</h2><pre class=" language-java"><code class="language-java">    ​errorPage<span class="token operator">:</span>        此页面出错时跳转到我们所写的出错页面
+    ​isErrorPage <span class="token operator">=</span> <span class="token string">"true"</span> 用来专门显示异常错误信息的页面        默认<span class="token boolean">false</span>
+           ​另外在这个页面中【能够使用到隐藏对象exception】来显示出错误的信息
+        ​只有注明参数为<span class="token boolean">true</span>才有exception对象</code></pre>
+<h2 id="7-动态包含与静态包含的区别-面试常考"><a href="#7-动态包含与静态包含的区别-面试常考" class="headerlink" title="7.动态包含与静态包含的区别(面试常考)"></a>7.动态包含与静态包含的区别(面试常考)</h2><pre class=" language-java"><code class="language-java">    ​语法不同
+        ​静态包含是指令元素中的        <span class="token operator">&lt;</span><span class="token operator">%</span>@ include file<span class="token operator">=</span><span class="token string">""</span><span class="token operator">%</span><span class="token operator">></span>
+         ​动态包含是动作元素中的        <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>include page<span class="token operator">=</span><span class="token string">""</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>jsp<span class="token operator">:</span>include<span class="token operator">></span>
+    ​原理不同
+        ​静态包含是将包含页面的整个页面的内容都拿过来，使用io流写回浏览器
+            只生成一个servlet和<span class="token keyword">class</span>文件
+         ​动态包含是将包含的页面的标签翻译成 include 方法，在运行期间才会调用，然后结合
+            生成各自的servlet和<span class="token keyword">class</span>文件
+    ​参数传递不同
+        ​静态包含无法传参，不能通过file的url向被包含的jsp页面传递参数
+        ​动态包含可以传参<span class="token punctuation">,</span>通过 <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>param value<span class="token operator">=</span><span class="token string">""</span> name<span class="token operator">=</span><span class="token string">""</span><span class="token operator">></span> 传递参数
+            传参出现中文乱码：    request<span class="token punctuation">.</span><span class="token function">setCharacterEncoding</span><span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>    或过滤器
+           【注意】传参数的方式不能是 <span class="token operator">?</span>参数名<span class="token operator">=</span>初始值<span class="token punctuation">,</span>
+    ​静态包含的执行效率更高
+    ​request对象
+        静态包含，共用一个request内置对象
+        动态包含，各用各的request</code></pre>
+<h2 id="8-jsp页面中的注释-comment"><a href="#8-jsp页面中的注释-comment" class="headerlink" title="8.jsp页面中的注释  comment"></a>8.jsp页面中的注释  comment</h2><h3 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h3><pre class=" language-jsp"><code class="language-jsp"><!-- html/xml 中的注释方式 -->
+特点：
+    ​用户在浏览器中右键查看源代码【能】看到这个注释
+    ​在服务器端，这个jsp页面被翻译成的java文件中【能】看到这个注释
+
+注意：用这种注释注释后没有效果的有
+    ​jsp动作元素    注释后jsp动作元素正常执行
+    ​EL表达式
+
+例：
+    ​无效用法
+        <!--  <jsp:forward page="hello.jsp"></jsp:forward>  -->
+        <!--  ${}  -->
+    ​解决方法
+        <%--  <jsp:forward page="hello.jsp"></jsp:forward>  --%>
+        <%--  ${}  --%></code></pre>
+<h3 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h3><pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">--</span>  jsp中的注释方式（隐藏注释）  <span class="token operator">--</span><span class="token operator">%</span><span class="token operator">></span>
+特点：
+      ​用户在浏览器中右键查看源代码【不能】看到这个注释，及内容
+    ​在服务器端，这个jsp页面被翻译成的java文件中【不能】看到这个注释</code></pre>
+<h3 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h3><pre class=" language-java"><code class="language-java">java中的注释方式，但这种注释方式只能在jsp的脚本或者声明中使用
+    <span class="token comment" spellcheck="true">//String name = "tom";</span>
+    <span class="token comment" spellcheck="true">/*
+        int b = 10;
+    */</span>
+    <span class="token comment" spellcheck="true">/**
+        Double c = 20.0; 
+    */</span>
+特点：
+    ​用户在浏览器中右键查看源代码【不能】看到这个注释
+    ​在服务器端，这个jsp页面被翻译成的java文件中【能】看到这个注释</code></pre>
+<h2 id="9-内置对象（在jsp页面代码中可以直接使用的对象）"><a href="#9-内置对象（在jsp页面代码中可以直接使用的对象）" class="headerlink" title="9.内置对象（在jsp页面代码中可以直接使用的对象）"></a>9.内置对象（在jsp页面代码中可以直接使用的对象）</h2><pre class=" language-java"><code class="language-java">其实是只有在这个 <span class="token function">_jspService</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法中才能使用的jsp脚本和jsp表达式
+    jsp脚本和jsp表达式
+    <span class="token operator">&lt;</span><span class="token operator">%</span>  脚本  <span class="token operator">%</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">%=</span>  表达式  <span class="token operator">%</span><span class="token operator">></span></code></pre>
+<h3 id="共有9个内置对象可以直接使用"><a href="#共有9个内置对象可以直接使用" class="headerlink" title="共有9个内置对象可以直接使用"></a>共有9个内置对象可以直接使用</h3><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">名字</th>
+<th align="left">解释</th>
+<th align="left">范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PageContext</td>
+<td align="left">pageContext</td>
+<td align="left">jsp页面上下文</td>
+<td align="left">同一页面</td>
+</tr>
+<tr>
+<td align="left">HttpServletRequest</td>
+<td align="left">request</td>
+<td align="left">请求</td>
+<td align="left">一次请求</td>
+</tr>
+<tr>
+<td align="left">HttpSession</td>
+<td align="left">session</td>
+<td align="left">会话</td>
+<td align="left">一次会话</td>
+</tr>
+<tr>
+<td align="left">ServletContext</td>
+<td align="left">application</td>
+<td align="left">应用</td>
+<td align="left">服务器开启到关闭</td>
+</tr>
+<tr>
+<td align="left">Object</td>
+<td align="left">page</td>
+<td align="left">jsp页面本身，相当于this，其实就是jsp页面翻译成的java类对象</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HttpServletResponse</td>
+<td align="left">response</td>
+<td align="left">响应</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">JspWriter</td>
+<td align="left">out</td>
+<td align="left">输出流</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ServletConfig</td>
+<td align="left">config</td>
+<td align="left">jsp的配置信息</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Throwable</td>
+<td align="left">exception</td>
+<td align="left">当设置isErrorPage(true)时，可处理其他页面异常</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<pre class=" language-jsp"><code class="language-jsp"><jsp:useBean id="s" class="com.briup.bean.Student" scope="page"></jsp:useBean>
+pageContext.setAttribute("stu",s);</code></pre>
+<blockquote>
+<p>【注意】为什么这些对象可以直接使用，因为他们都是在 _jspService这个方法中默认声明出来了。而我们在表达式和脚本中所写的java代码将来是要翻译到 _jspService 方法中的，所以我们在表达式和脚本中写java代码的时候可以直接使用这些对象。</p>
+</blockquote>
+<h4 id="四个范围对象-（在一定范围内可以存取数据）"><a href="#四个范围对象-（在一定范围内可以存取数据）" class="headerlink" title="四个范围对象        （在一定范围内可以存取数据）"></a>四个范围对象        （在一定范围内可以存取数据）</h4><pre class=" language-java"><code class="language-java">    ​pageContext        <span class="token comment" spellcheck="true">//页面范围（只能在同一页面中起作用）</span>
+    ​request            <span class="token comment" spellcheck="true">//一次请求之间</span>
+    ​session            <span class="token comment" spellcheck="true">//一次会话之间</span>
+    ​application        <span class="token comment" spellcheck="true">//服务器开启到服务器关闭</span></code></pre>
+<h4 id="page"><a href="#page" class="headerlink" title="page"></a>page</h4><pre class=" language-java"><code class="language-java">    ​虽然名字叫page，但是这个并不是页面范围对象，它是Object类型的对象，表示当前这个页面本身（jsp页面就是一个servlet）
+    ​其实page指的是jsp页面翻译成的java类对象，服务器使用这个java类所创建的对象（把page对象输出即可看到），所以说page对象代表jsp页面本身
+
+       <span class="token operator">&lt;</span><span class="token operator">%=</span><span class="token punctuation">(</span>page <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span>br<span class="token operator">></span>            输出的结果为 <span class="token boolean">true</span></code></pre>
+<h4 id="out"><a href="#out" class="headerlink" title="out"></a>out</h4><pre class=" language-java"><code class="language-java">    用于向浏览器输出内容的输出流</code></pre>
+<h4 id="exception"><a href="#exception" class="headerlink" title="exception"></a>exception</h4><pre class=" language-java"><code class="language-java">    ​这个对象其实我们并不能直接使用，需要相关设置后才能使用，这个可以算是一个隐藏的对象。
+    ​这个对象表示将来这个jsp页面运行出错的地方所抛出的异常对象</code></pre>
+<h2 id="10-jsp页面中的路径"><a href="#10-jsp页面中的路径" class="headerlink" title="10.jsp页面中的路径"></a>10.jsp页面中的路径</h2><pre class=" language-java"><code class="language-java">    ​一般情况下，jsp中路径问题是我们之前在servlet中讨论的HTML里面的路径问题是一样的，但是在         jsp中可以动态获得该项目的url
+    ​如果在jsp页面的上面写了这样一个脚本
+        <span class="token operator">&lt;</span><span class="token operator">%</span>
+           String path <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getContextPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//包名</span>
+           String basePath <span class="token operator">=</span> requrst<span class="token punctuation">.</span><span class="token function">getScheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span>                                request<span class="token punctuation">.</span><span class="token function">getServerName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">":"</span> <span class="token operator">+</span> request<span class="token punctuation">.</span><span class="token function">getServerPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> path <span class="token operator">+</span> "         <span class="token operator">%</span><span class="token operator">></span>
+    ​并且在 <span class="token operator">&lt;</span>head<span class="token operator">></span> 标签中加入了一个子标签        <span class="token operator">&lt;</span>base href<span class="token operator">=</span><span class="token string">"&lt;%=basePath%>"</span> <span class="token operator">/</span><span class="token operator">></span>
+    ​那么在这个jsp页面中，我们再去写上一个相对路径（最左边没有加<span class="token operator">/</span>的那种路径）<span class="token punctuation">,</span>它就不是相对于地     址栏中的当前路径了，而是要相对于这个basePath变量所代表的的这个路径</code></pre>
+<h2 id="11-EL表达式"><a href="#11-EL表达式" class="headerlink" title="11.EL表达式"></a>11.EL表达式</h2><pre class=" language-java"><code class="language-java">形式：     $<span class="token punctuation">{</span> <span class="token punctuation">}</span>
+作用：        从一个范围里面取值或者从一个对象中取值或是向页面输出值（取值并显示）
+    ​接收客户端参数
+        $<span class="token punctuation">{</span>param<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+    ​指定范围并取值
+        $<span class="token punctuation">{</span>pageScope<span class="token punctuation">.</span>name1<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>requestScope<span class="token punctuation">.</span>name2<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>sessionScope<span class="token punctuation">.</span>name3<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>applicationScope<span class="token punctuation">.</span>name4<span class="token punctuation">}</span>
+    ​可以不指定范围就去取值
+        $<span class="token punctuation">{</span>name<span class="token punctuation">}</span>
+        ​这个时候会按照pageContext、 request、 session、 application 这样的顺序依次的          去找有没有一个叫name的值存在，一但找到了就输出出来，最终没有找到那么什么都不输出
+    ​取出一个对象中的属性值
+        $<span class="token punctuation">{</span>requestScope<span class="token punctuation">.</span>student<span class="token punctuation">.</span>id<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>requestScope<span class="token punctuation">.</span>student<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>requestScope<span class="token punctuation">.</span>student<span class="token punctuation">.</span>age<span class="token punctuation">}</span>
+        或
+        $<span class="token punctuation">{</span>student<span class="token punctuation">.</span>id<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>student<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>student<span class="token punctuation">.</span>age<span class="token punctuation">}</span>
+        或
+        $<span class="token punctuation">{</span>student<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>student<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+        $<span class="token punctuation">{</span>student<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+        $<span class="token punctuation">{</span>student<span class="token punctuation">[</span><span class="token string">"age"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>student<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    【注意】
+          ​$<span class="token punctuation">{</span>student<span class="token punctuation">.</span>id<span class="token punctuation">}</span> 表示是要调用student对象中的getId方法，至少对象中有没有id属性对               这个操作没有任何影响
+          ​所以这个id指的是对象中的 property ，而不是 attribute
+          ​如果Student类中一个方法是getAddress，返回一个Address类的对象，Address类中有           一个方法getCity，这个时候我们就可以这样写去拿到city属性值
+                $<span class="token punctuation">{</span>student<span class="token punctuation">.</span>address<span class="token punctuation">.</span>city<span class="token punctuation">}</span>
+
+    ​输出字符串
+        $<span class="token punctuation">{</span><span class="token string">"hello"</span><span class="token punctuation">}</span>
+    ​输出运算结果或者<span class="token keyword">boolean</span>表达式
+        $<span class="token punctuation">{</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">1</span> <span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">4</span><span class="token operator">+</span><span class="token number">5</span><span class="token operator">*</span><span class="token number">3</span> <span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>u<span class="token punctuation">.</span>age <span class="token operator">*</span> <span class="token number">10</span> <span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token number">3</span> <span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>empty <span class="token string">""</span><span class="token punctuation">}</span>        <span class="token comment" spellcheck="true">//为空的话返回true</span>
+        $<span class="token punctuation">{</span>empty <span class="token string">"hello"</span><span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>not empty <span class="token string">"hello"</span><span class="token punctuation">}</span>        <span class="token comment" spellcheck="true">//取否 不为空的话返回 true</span>
+        $<span class="token punctuation">{</span><span class="token operator">!</span> empty <span class="token string">"hello"</span><span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>param<span class="token punctuation">.</span>score <span class="token operator">></span> <span class="token number">50</span> <span class="token punctuation">}</span>
+        $<span class="token punctuation">{</span>param<span class="token punctuation">.</span>score <span class="token operator">></span> <span class="token number">60</span><span class="token operator">?</span><span class="token string">"good"</span><span class="token operator">:</span><span class="token string">"bad"</span><span class="token punctuation">}</span>
+
+    ​输出数组、集合中的元素
+        <span class="token operator">&lt;</span><span class="token operator">%</span>
+            String<span class="token punctuation">[</span><span class="token punctuation">]</span> str <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"hello"</span><span class="token punctuation">,</span><span class="token string">"world"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+            List<span class="token operator">&lt;</span>String<span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"tom"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"jake"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Integer<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"str"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"list"</span><span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">,</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">%</span><span class="token operator">></span>
+
+        $<span class="token punctuation">{</span>str<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">></span>
+        $<span class="token punctuation">{</span>list<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">></span>
+        $<span class="token punctuation">{</span>map<span class="token punctuation">[</span><span class="token string">"c"</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">></span>
+
+    ​key的值中含有特殊符号点
+        例：
+           request对象中有一个key值为；javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>forward<span class="token punctuation">.</span>request_uri
+           要取这个值必须用以下形式
+            $<span class="token punctuation">{</span>requestScope<span class="token punctuation">[</span><span class="token string">'javax.servlet.forward.request_uri'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span></code></pre>
+<h2 id="12-JSTL标签库-（JSP-Standard-Tag-Library）"><a href="#12-JSTL标签库-（JSP-Standard-Tag-Library）" class="headerlink" title="12.JSTL标签库        （JSP Standard Tag Library）"></a>12.JSTL标签库        （JSP Standard Tag Library）</h2><h3 id="1）让web项目支持JSTL标签库"><a href="#1）让web项目支持JSTL标签库" class="headerlink" title="1）让web项目支持JSTL标签库"></a>1）让web项目支持JSTL标签库</h3><pre class=" language-java"><code class="language-java">    在eclipse中，建立一个文本项目，默认都是不支持JSTL，所以需要我们自己把JSTL的jar包导入到项目中（复制，粘贴到项目中的lib目录）：    jst1<span class="token operator">-</span><span class="token number">1.2</span><span class="token punctuation">.</span>jar</code></pre>
+<h3 id="2）把JSTL标签库导入到某一个jsp页面中"><a href="#2）把JSTL标签库导入到某一个jsp页面中" class="headerlink" title="2）把JSTL标签库导入到某一个jsp页面中"></a>2）把JSTL标签库导入到某一个jsp页面中</h3><pre class=" language-java"><code class="language-java">使用jsp中的taglib指令
+    <span class="token operator">&lt;</span><span class="token operator">%</span>@ taglib uri <span class="token operator">=</span> <span class="token string">"http://java.sun.com/jsp/jstl/core"</span> prefix<span class="token operator">=</span><span class="token string">"c"</span> <span class="token operator">%</span><span class="token operator">></span>
+
+    prefix<span class="token operator">=</span><span class="token string">"c"</span>相当于给这个标签库起一个别名，将来在页面中就是用以c开头的标签来使用标签库中的标      签。这个别名也可以叫其他的名字
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span>forEach<span class="token operator">></span>标签<span class="token operator">:</span>
+        <span class="token operator">&lt;</span><span class="token operator">%</span>
+            List<span class="token operator">&lt;</span>Student<span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Student<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"tom"</span><span class="token punctuation">,</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"tom2"</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"tom3"</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">"tom4"</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            session<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"list"</span><span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">%</span><span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span>forEach items <span class="token operator">=</span><span class="token string">"${list}"</span> var<span class="token operator">=</span><span class="token string">"stu"</span> begin<span class="token operator">=</span><span class="token string">"0"</span> end<span class="token operator">=</span><span class="token string">"3"</span>                     varStatus<span class="token operator">=</span><span class="token string">"status"</span> step<span class="token operator">=</span><span class="token string">"1"</span> <span class="token operator">></span>
+            $<span class="token punctuation">{</span>status<span class="token punctuation">.</span>index<span class="token punctuation">}</span><span class="token operator">:</span>$<span class="token punctuation">{</span>stu<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">-</span>$<span class="token punctuation">{</span>stu<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">-</span>$<span class="token punctuation">{</span>stu<span class="token punctuation">.</span>age<span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>foEach<span class="token operator">></span>
+
+         ​begin<span class="token operator">=</span><span class="token string">""</span>默认值是<span class="token number">0</span>  end <span class="token operator">=</span><span class="token string">""</span>默认值是最后一个元素<span class="token punctuation">,</span>
+         ​一般的遍历只要写var和items来个属性即可</code></pre>
+<h4 id="遍历List集合"><a href="#遍历List集合" class="headerlink" title="遍历List集合"></a>遍历List集合</h4><pre class=" language-java"><code class="language-java">    map是一个Map类型的集合，放到了request对象中，entry是我们定义的一个变量，用做接收每次遍历到集合中的一组键值对，我们可以通过entry<span class="token punctuation">.</span>key  entry<span class="token punctuation">.</span>value 分别拿到这次遍历到的key值和value值
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span>foEach items<span class="token operator">=</span><span class="token string">"${map}"</span> var<span class="token operator">=</span><span class="token string">"entry"</span><span class="token operator">></span>
+        $<span class="token punctuation">{</span>entry<span class="token punctuation">.</span>key <span class="token punctuation">}</span> <span class="token operator">--</span><span class="token operator">-</span><span class="token operator">></span> $<span class="token punctuation">{</span>entry<span class="token punctuation">.</span>value<span class="token punctuation">.</span>id<span class="token punctuation">}</span> <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span> $<span class="token punctuation">{</span>entry<span class="token punctuation">.</span>value<span class="token punctuation">.</span>name<span class="token punctuation">}</span> <span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>
+        $<span class="token punctuation">{</span>entry<span class="token punctuation">.</span>value<span class="token punctuation">.</span>age <span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>forEach<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span>out<span class="token operator">></span> 标签
+        向页面输出内容，就像 <span class="token operator">&lt;</span><span class="token operator">%=</span>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">%</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span>out value<span class="token operator">=</span><span class="token string">"hello"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>out<span class="token operator">></span>
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span>out value<span class="token operator">=</span><span class="token string">"${5+5}"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>out<span class="token operator">></span>
+
+    <span class="token comment" spellcheck="true">//students是放在request中的List集合,集合里面是Student对象</span>
+           <span class="token operator">&lt;</span>c<span class="token operator">:</span>out value<span class="token operator">=</span><span class="token string">"${students[2].id}"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>out<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span>set<span class="token operator">></span> 标签
+        向某一个范围对象中存放一个值
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span>set var<span class="token operator">=</span><span class="token string">"name"</span> value<span class="token operator">=</span><span class="token string">"jack"</span> scope<span class="token operator">=</span><span class="token string">"request"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>set<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span>remove<span class="token operator">></span> 标签
+        从一个范围对象中把某个值给移除掉
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span>remove var<span class="token operator">=</span><span class="token string">"name"</span> scope<span class="token operator">=</span><span class="token string">"request"</span><span class="token operator">/</span><span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">if</span><span class="token operator">></span> 标签
+        条件判断
+        <span class="token operator">&lt;</span><span class="token operator">%</span>
+            request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"score"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">%</span><span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">if</span> test<span class="token operator">=</span><span class="token string">"${score > 85}"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>font color <span class="token operator">=</span> <span class="token string">"red"</span><span class="token operator">></span>你的分数超过了<span class="token number">85</span>分<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span><span class="token keyword">if</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">if</span> test<span class="token operator">=</span><span class="token string">"${score > 95}"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>font color <span class="token operator">=</span> <span class="token string">"red"</span><span class="token operator">></span>你的分数超过了<span class="token number">95</span>分<span class="token operator">&lt;</span><span class="token operator">/</span>font<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span><span class="token keyword">if</span><span class="token operator">></span>   
+        相当于
+        <span class="token keyword">if</span><span class="token punctuation">(</span>score<span class="token operator">></span><span class="token number">85</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>score<span class="token operator">></span><span class="token number">95</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token punctuation">}</span>    
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">catch</span><span class="token operator">></span> 标签
+        处理产生错误的异常状况，并且将错误信息储存起来
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">catch</span> var<span class="token operator">=</span><span class="token string">"catchException"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">;</span> <span class="token operator">%</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span><span class="token keyword">catch</span><span class="token operator">></span>
+
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">if</span> test<span class="token operator">=</span><span class="token string">"${catchException != null}"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>p<span class="token operator">></span>
+                异常为：$<span class="token punctuation">{</span>catchException<span class="token punctuation">}</span><span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">></span>
+                发生了异常<span class="token operator">:</span> $<span class="token punctuation">{</span>catchException<span class="token punctuation">.</span>message<span class="token punctuation">}</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span><span class="token keyword">if</span><span class="token operator">></span>
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">import</span><span class="token operator">></span> 标签
+        和 <span class="token operator">&lt;</span>jsp<span class="token operator">:</span>include<span class="token operator">></span> 的作用基本相同，<span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">import</span><span class="token operator">></span>还可以选择把引入的内容先保存在一个变量         中，之后通过EL表达式在拿出来显示
+            <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">import</span> url<span class="token operator">=</span><span class="token string">"a.jsp"</span><span class="token operator">/</span><span class="token operator">></span>
+            或
+            <span class="token operator">&lt;</span>c<span class="token operator">:</span><span class="token keyword">import</span> var<span class="token operator">=</span><span class="token string">"data"</span> url<span class="token operator">=</span><span class="token string">"a,jsp"</span> <span class="token operator">/</span><span class="token operator">></span>
+            $<span class="token punctuation">{</span>data<span class="token punctuation">}</span>
+
+            <span class="token operator">&lt;</span>c<span class="token operator">:</span>choose<span class="token operator">></span> 标签
+            <span class="token operator">&lt;</span>c<span class="token operator">:</span>when<span class="token operator">></span> 标签
+            <span class="token operator">&lt;</span>c<span class="token operator">:</span>otherwise<span class="token operator">></span> 标签
+            例：
+            <span class="token operator">&lt;</span>c<span class="token operator">:</span>choose<span class="token operator">></span>
+                <span class="token operator">&lt;</span>c<span class="token operator">:</span>when test<span class="token operator">=</span><span class="token string">"${score>=90}"</span><span class="token operator">></span>优秀<span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>when<span class="token operator">></span>
+                <span class="token operator">&lt;</span>c<span class="token operator">:</span>when test<span class="token operator">=</span><span class="token string">"${score>=80}"</span><span class="token operator">></span>良好<span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>when<span class="token operator">></span>
+                <span class="token operator">&lt;</span>c<span class="token operator">:</span>when test<span class="token operator">=</span><span class="token string">"${score>=70}"</span><span class="token operator">></span>中等<span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>when<span class="token operator">></span>
+                <span class="token operator">&lt;</span>c<span class="token operator">:</span>when test<span class="token operator">=</span><span class="token string">"${score>=60}"</span><span class="token operator">></span>及格<span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>when<span class="token operator">></span>
+                <span class="token operator">&lt;</span>c<span class="token operator">:</span>otherwise<span class="token operator">></span>差评<span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>otherwise<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>c<span class="token operator">:</span>choose<span class="token operator">></span>
+
+               相当于：
+            <span class="token keyword">if</span><span class="token punctuation">{</span>score<span class="token operator">>=</span><span class="token number">90</span><span class="token punctuation">}</span><span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>score<span class="token operator">>=</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>score<span class="token operator">>=</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>score<span class="token operator">>=</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+
+            <span class="token punctuation">}</span>
+
+    <span class="token operator">&lt;</span>c<span class="token operator">:</span>redirect<span class="token operator">></span> 标签重定向
+        <span class="token operator">&lt;</span>c<span class="token operator">:</span>redirect url<span class="token operator">=</span><span class="token string">"a.jsp"</span><span class="token operator">/</span><span class="token operator">></span></code></pre>
+<h2 id="13-自定义标签"><a href="#13-自定义标签" class="headerlink" title="13.自定义标签"></a>13.自定义标签</h2><pre class=" language-java"><code class="language-java">    JSP1<span class="token number">.1</span>版本中增加了自定义标签库规范，但是在 JSP1<span class="token number">.1</span>规范中开发自定义标签库比较复杂，JSP2<span class="token number">.0</span> 规范简化了标签库的开发，只需如下几个步骤
+    ​编写自定义标签处理类
+    ​建立一个 <span class="token operator">*</span><span class="token punctuation">.</span>tld 文件，每个 <span class="token operator">*</span><span class="token punctuation">.</span>tld 文件对应一个标签库，每个标签库可以对应多个标签，该文件放在      WEB<span class="token operator">-</span>INF下即可
+    ​在jsp文件中使用taglib指令引入并使用自定义标签
+
+    【注意】我们使用的tomcat8<span class="token number">.5</span><span class="token punctuation">.</span><span class="token number">38</span>中实现的是JSP2<span class="token number">.3</span>的规范
+        ​javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>jsp<span class="token punctuation">.</span>tagext<span class="token punctuation">.</span>JspTag接口，所有的标签都需要实现这个接口
+        ​JSP2<span class="token number">.0</span>版本中，提供了javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>jsp<span class="token punctuation">.</span>tagext<span class="token punctuation">.</span>SimpleTagSupport类，我们编写的自             定义标签处理类继承该类即可</code></pre>
+<h3 id="【例1】编写一个标签，可以自动输出hello"><a href="#【例1】编写一个标签，可以自动输出hello" class="headerlink" title="【例1】编写一个标签，可以自动输出hello"></a>【例1】编写一个标签，可以自动输出hello</h3><h4 id="第一步-继承SimpleTagSupport，重写doTag即可"><a href="#第一步-继承SimpleTagSupport，重写doTag即可" class="headerlink" title="第一步    继承SimpleTagSupport，重写doTag即可"></a>第一步    继承SimpleTagSupport，重写doTag即可</h4><pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloTag</span> <span class="token keyword">extends</span> <span class="token class-name">SimpleTagSuppport</span><span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JspException<span class="token punctuation">,</span>IOException<span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getJspContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getOut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="第二步-编写my-tag-tld文件-名字随意-，存放在WEB-INF下："><a href="#第二步-编写my-tag-tld文件-名字随意-，存放在WEB-INF下：" class="headerlink" title="第二步    编写my-tag.tld文件(名字随意)，存放在WEB-INF下："></a>第二步    编写my-tag.tld文件(名字随意)，存放在WEB-INF下：</h4><pre class=" language-jsp"><code class="language-jsp">    <?xml version="1.0" encoding="ISO-8859-1" ?>
+    <!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library         1.2//EN" "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+    <taglib>
+      <tlib-version>1.0</tlib-version>
+      <jsp-version>1.2</jsp-version>
+      <short-name>my-taglib</short-name>
+      <uri>briup-taglib</uri>
+
+      <tag>
+        <name>hello</name>
+        <tag-class>com.briup.test.HelloTag</tag-class>
+        <body-content>empty</body-content>
+      </tag>  
+    </taglib></code></pre>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><pre class=" language-java"><code class="language-java">    ​该文件的样例可以在tomcat中的实例项目中复制出来修改
+        D<span class="token operator">:</span>\apache<span class="token operator">-</span>tomcat<span class="token operator">-</span><span class="token number">8.5</span><span class="token punctuation">.</span><span class="token number">38</span>\webapps\examples\WEB<span class="token operator">-</span>INF\jsp\example<span class="token operator">-</span>taglib<span class="token punctuation">.</span>tld文件
+    ​<span class="token operator">&lt;</span>body<span class="token operator">-</span>content<span class="token operator">></span>标签中的值，表示自定义标签中body部分可以填写的内容类型，有四种：
+        ​empty
+            空标记，即起始标记和结束标记之间没有内容<span class="token operator">&lt;</span>a<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+        ​scriptless
+            接受文本、EL和JSP动作 
+            ​<span class="token function">JSP</span> <span class="token punctuation">(</span>SimpleTagSupport类型不支持<span class="token punctuation">)</span>
+            接受所有JSP语法，如定制的或内部的tag、scripts、静态HTML、脚本元素、JSP指令和动作
+        ​tagdependent
+            标签体内容直接被写入BodyContent，由自定义标签类来进行处理，而不被JSP容器解释</code></pre>
+<h4 id="第三步-jsp页面中引入并使用标签库"><a href="#第三步-jsp页面中引入并使用标签库" class="headerlink" title="第三步    jsp页面中引入并使用标签库"></a>第三步    jsp页面中引入并使用标签库</h4><pre class=" language-xml"><code class="language-xml">    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%@</span> <span class="token attr-name">taglib</span> <span class="token attr-name">uri</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>briup-taglib<span class="token punctuation">"</span></span> <span class="token attr-name">prefix</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>briup<span class="token punctuation">"</span></span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+    <span class="token doctype">&lt;!DOCTYPE html></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>hello.jsp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">briup:</span>hello</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">briup:</span>hello</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="【例2】编写一个标签，可以自动输出hello并附带上标签体中的内容"><a href="#【例2】编写一个标签，可以自动输出hello并附带上标签体中的内容" class="headerlink" title="【例2】编写一个标签，可以自动输出hello并附带上标签体中的内容"></a>【例2】编写一个标签，可以自动输出hello并附带上标签体中的内容</h3><h4 id="第一步-修改HelloTag类"><a href="#第一步-修改HelloTag类" class="headerlink" title="第一步    修改HelloTag类"></a>第一步    修改HelloTag类</h4><pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloTag</span> <span class="token keyword">extends</span> <span class="token class-name">SimpleTagSupport</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JspException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//准备好一个StringWriter，接收标签体内容</span>
+            StringWriter sw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//把标签体内容写到StringWriter中</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getJspBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>sw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//从StringWriter中获取标签体的内容</span>
+            String tagBody <span class="token operator">=</span> sw<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getJspContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getOut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello! "</span><span class="token operator">+</span>tagBody<span class="token punctuation">)</span><span class="token punctuation">;</span>        
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
+<h4 id="第二步-修改my-tag-tld文件"><a href="#第二步-修改my-tag-tld文件" class="headerlink" title="第二步    修改my-tag.tld文件"></a>第二步    修改my-tag.tld文件</h4><pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tag</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tag-class</span><span class="token punctuation">></span></span>com.briup.test.HelloTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tag-class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body-content</span><span class="token punctuation">></span></span>scriptless<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body-content</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tag</span><span class="token punctuation">></span></span></code></pre>
+<blockquote>
+<p>【注意】只是修改了<body-content>标签中的值，这里改为scriptless或者tagdependent都是可以的.其他地方不用修改</body-content></p>
+</blockquote>
+<h4 id="第三步-修改jsp文件，添加标签body内容即可"><a href="#第三步-修改jsp文件，添加标签body内容即可" class="headerlink" title="第三步    修改jsp文件，添加标签body内容即可"></a>第三步    修改jsp文件，添加标签body内容即可</h4><pre class=" language-java"><code class="language-java">    <span class="token operator">&lt;</span>briup<span class="token operator">:</span>hello<span class="token operator">></span>tom<span class="token operator">&lt;</span><span class="token operator">/</span>briup<span class="token operator">:</span>hello<span class="token operator">></span></code></pre>
+<h3 id="【-例3】-编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次"><a href="#【-例3】-编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次" class="headerlink" title="【 例3】    编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次"></a>【 例3】    编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次</h3><h4 id="第一步-修改HelloTag类-1"><a href="#第一步-修改HelloTag类-1" class="headerlink" title="第一步    修改HelloTag类"></a>第一步    修改HelloTag类</h4><h5 id="修改1"><a href="#修改1" class="headerlink" title="修改1"></a>修改1</h5><pre class=" language-java"><code class="language-java">添加属性count，提供get<span class="token operator">/</span>set方法，用来接收标签中属性的count属性的值</code></pre>
+<h5 id="修改2"><a href="#修改2" class="headerlink" title="修改2"></a>修改2</h5><pre class=" language-java"><code class="language-java">输出内容语句外面嵌套循环，循环次数由count的值来控制
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloTag</span> <span class="token keyword">extends</span> <span class="token class-name">SimpleTagSupport</span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> count<span class="token punctuation">;</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> JspException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//准备好一个StringWriter，接收标签体内容</span>
+            StringWriter sw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//把标签体内容写到StringWriter中</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getJspBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>sw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//从StringWriter中获取标签体的内容</span>
+            String tagBody <span class="token operator">=</span> sw<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>count<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getJspContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getOut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello! "</span><span class="token operator">+</span>tagBody<span class="token operator">+</span><span class="token string">"&lt;br>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token keyword">int</span> count<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>count <span class="token operator">=</span> count<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>   </code></pre>
+<h4 id="第二步-修改my-tag-tld文件-1"><a href="#第二步-修改my-tag-tld文件-1" class="headerlink" title="第二步    修改my-tag.tld文件"></a>第二步    修改my-tag.tld文件</h4><pre class=" language-xml"><code class="language-xml">修改地方，添加attribute标签来指定属性的相关信息
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tag</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tag-class</span><span class="token punctuation">></span></span>com.briup.test.HelloTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tag-class</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body-content</span><span class="token punctuation">></span></span>scriptless<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body-content</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>attribute</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>count<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>required</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>required</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>attribute</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tag</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="第三步-修改jsp文件，添加标签的属性"><a href="#第三步-修改jsp文件，添加标签的属性" class="headerlink" title="第三步    修改jsp文件，添加标签的属性"></a>第三步    修改jsp文件，添加标签的属性</h4><pre class=" language-jsp"><code class="language-jsp">    <briup:hello count="5">tom</briup:hello></code></pre>
+<h3 id="【例4】编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次，同时标签体值和属性的值都是要EL表达式来表示"><a href="#【例4】编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次，同时标签体值和属性的值都是要EL表达式来表示" class="headerlink" title="【例4】编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次，同时标签体值和属性的值都是要EL表达式来表示"></a>【例4】编写一个标签，可以自动输出hello，并附带上标签体中的内容，并且根据标签中属性的值，来确定内容将会输出多少次，同时标签体值和属性的值都是要EL表达式来表示</h3><h4 id="第一步-HelloTag类，和例3保持一致，不需要改动"><a href="#第一步-HelloTag类，和例3保持一致，不需要改动" class="headerlink" title="第一步    HelloTag类，和例3保持一致，不需要改动"></a>第一步    HelloTag类，和例3保持一致，不需要改动</h4><h4 id="第二步-修改my-tag-tld文件-2"><a href="#第二步-修改my-tag-tld文件-2" class="headerlink" title="第二步    修改my-tag.tld文件"></a>第二步    修改my-tag.tld文件</h4><pre class=" language-jsp"><code class="language-jsp">修改地方，添加标签<rtexprvalue>，表示支持EL
+    rtexprvalue的意思是：Runtime Expression Value
+
+    <tag>
+        <name>hello</name>
+        <tag-class>com.briup.test.HelloTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>count</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag></code></pre>
+<h4 id="第三步-修改jsp文件，添加标签的属性-1"><a href="#第三步-修改jsp文件，添加标签的属性-1" class="headerlink" title="第三步    修改jsp文件，添加标签的属性"></a>第三步    修改jsp文件，添加标签的属性</h4><pre class=" language-jsp"><code class="language-jsp">修改地方，添加了jsp脚本，配合测试
+    <%
+        request.setAttribute("name", "zs");
+        request.setAttribute("count", "10");
+    %>
+    <briup:hello count="${count }">${name }</briup:hello></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">小田学社</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://t1487700453.github.io/2020/11/11/jsp-zong-jie/">http://t1487700453.github.io/2020/11/11/jsp-zong-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">小田学社</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/">
+                                    <span class="chip bg-color">动态页面</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/11/11/jsp-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="JSP总结">
+                        
+                        <span class="card-title">JSP总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            jsp相关知识点的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/" class="post-category">
+                                    前端页面
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/">
+                        <span class="chip bg-color">动态页面</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/11/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            小田学社
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2020</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">小田学社</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:1487700453@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1487700453" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1487700453" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
