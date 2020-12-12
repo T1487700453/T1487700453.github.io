@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux 环境安装">
+    <meta name="keywords" content="Linux基础">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Vagrant 操作虚拟机 | 沧海桑田不负你</title>
+    <title>Linux 基本指令 | 沧海桑田不负你</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -290,12 +290,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Vagrant 操作虚拟机</h1>
+                    <h1 class="description center-align post-title">Linux 基本指令</h1>
                 </div>
             </div>
         </div>
@@ -412,8 +412,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/Linux%E6%8C%87%E4%BB%A4/">
+                                <span class="chip bg-color">Linux指令</span>
                             </a>
                         
                     </div>
@@ -437,7 +437,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-05
+                    2020-11-01
                 </div>
                 
 
@@ -453,142 +453,285 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Vagrant-操作虚拟机"><a href="#Vagrant-操作虚拟机" class="headerlink" title="Vagrant 操作虚拟机"></a>Vagrant 操作虚拟机</h1><h2 id="1-安装-Centos7"><a href="#1-安装-Centos7" class="headerlink" title="1. 安装 Centos7"></a>1. 安装 Centos7</h2><pre class=" language-shell"><code class="language-shell">#选择盘符
-E:
-#创建目录vagrant
-mkdir vagrant
-#进入目录
-cd vagrant
-#创建目录centos7
-mkdir centos7
-#进入目录
-cd centos7
-#创建centos7的`Vagrantfile`文件
-vagrant init centos/7
-
-# 安装虚拟机
-vagrant up
-
-# 由于下载速度慢，可以在迅雷下载
-https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-1804_02.VirtualBox.box
-
-#添加镜像
-vagrant box add centos7 ./CentOS-7-x86_64-Vagrant-1804_02.VirtualBox.box
-#添加关联
-vagrant up
-
-#启动
-vagrant up
-#重启
-vagrant reload [vm-name]
-#关机
-vagrant halt [vm-name]
-#销毁虚拟机
-vagrant destroy [vm-name]
-#ssh登录虚拟机
-vagrant ssh [vm-name]</code></pre>
-<h2 id="2-连接虚拟机"><a href="#2-连接虚拟机" class="headerlink" title="2.连接虚拟机"></a>2.连接虚拟机</h2><pre class=" language-shell"><code class="language-shell">vagrant ssh
-
-# 查看当前登录用户
-whoami
-# 查询IP
-ip addr</code></pre>
-<h2 id="3-安装-Docker"><a href="#3-安装-Docker" class="headerlink" title="3.安装 Docker"></a>3.安装 Docker</h2><p>概念：虚拟化容器技术。Docker基于镜像，可以秒级启动各种容器。每一种容器都是一个完整的运行环境，容器之间互相隔离。<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
-<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><pre class=" language-shell"><code class="language-shell">$ sudo yum install -y yum-utils
-
-$ sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-
-$ sudo yum install docker-ce docker-ce-cli containerd.io</code></pre>
-<h3 id="2-启动-服务"><a href="#2-启动-服务" class="headerlink" title="2.启动 服务"></a>2.启动 服务</h3><pre class=" language-shell"><code class="language-shell">$ sudo systemctl start docker
-
-# 参看版本
-$ docker -v
-
-# 检查当前虚拟机下载的镜像
-$ sudo docker images</code></pre>
-<h3 id="3-设置开机自启动"><a href="#3-设置开机自启动" class="headerlink" title="3.设置开机自启动"></a>3.设置开机自启动</h3><pre class=" language-shell"><code class="language-shell">$ sudo systemctl enable docker</code></pre>
-<h3 id="4-配置镜像加速-阿里云——容器镜像服务"><a href="#4-配置镜像加速-阿里云——容器镜像服务" class="headerlink" title="4.配置镜像加速(阿里云——容器镜像服务)"></a>4.配置镜像加速(阿里云——容器镜像服务)</h3><pre class=" language-shell"><code class="language-shell">$ sudo mkdir -p /etc/docker
-$ sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://dki9604n.mirror.aliyuncs.com"]
-}
-EOF
-$ sudo systemctl daemon-reload
-$ sudo systemctl restart docker</code></pre>
-<h2 id="4-安装-Mysql"><a href="#4-安装-Mysql" class="headerlink" title="4.安装 Mysql"></a>4.安装 Mysql</h2><pre class=" language-shell"><code class="language-shell">$  sudo docker pull mysql:5.7
-
-# 检查当前虚拟机下载的镜像
-$ sudo docker images
-
-# 查看Docker正在运行的容器
-$ sudo docker ps</code></pre>
-<h3 id="1-启动"><a href="#1-启动" class="headerlink" title="1.启动"></a>1.启动</h3><pre class=" language-shell"><code class="language-shell">docker run -p 3306:3306 --name mysql \
--v /mydata/mysql/log:/var/log/mysql \
--v /mydata/mysql/data:/var/lib/mysql \
--v /mydata/mysql/conf:/etc/mysql \
--e MYSQL_ROOT_PASSWORD=root \
--d mysql:5.7
-
-# -p 端口映射 将MySQL容器中的3306端口映射到Linux中的3306端口
-# --name 给当前容器命名 mysql
-# -v 目录挂载 相当于将MySQL容器内部目录做 软链接 链接到Linux中</code></pre>
-<h3 id="2-进入容器"><a href="#2-进入容器" class="headerlink" title="2.进入容器"></a>2.进入容器</h3><pre class=" language-shell"><code class="language-shell"># 交互模式 进入
-docker exec -it mysql /bin/bash
-
-# 查看Mysql的安装位置
-whereis mysql
-
-# 退出容器
-exit</code></pre>
-<h3 id="3-配置Mysql"><a href="#3-配置Mysql" class="headerlink" title="3.配置Mysql"></a>3.配置Mysql</h3><pre class=" language-shell"><code class="language-shell">$ vi my.cnf
-
-[client]
-default-character-set=utf8
-
-[mysql]
-default-character-set=utf8
-
-[mysqlid]
-init_connect='SET collation_connection = utf8_unicode_ci'
-init_connect='SET NAMES utf8'
-character-set-server=utf8
-collation-server=utf8_unicode_ci
-skip-character-set-client-handshake
-skip-name-resolve</code></pre>
-<h3 id="4-重启mysql容器"><a href="#4-重启mysql容器" class="headerlink" title="4.重启mysql容器"></a>4.重启mysql容器</h3><pre class=" language-shell"><code class="language-shell"># 查看Docker正在运行的容器
-$ sudo docker ps
-
-# 重启
-$ sudo docker restart mysql
-
-# 设置自动启动
-$ sudo docker update mysql --restart=always</code></pre>
-<h3 id="5-远程连接mysql"><a href="#5-远程连接mysql" class="headerlink" title="5.远程连接mysql"></a>5.远程连接mysql</h3><pre class=" language-shell"><code class="language-shell">mysql -h 192.168.56.10 -uroot -proot</code></pre>
-<h2 id="5-安装Redis"><a href="#5-安装Redis" class="headerlink" title="5.安装Redis"></a>5.安装Redis</h2><pre class=" language-shell"><code class="language-shell">$ sudo docker pull redis</code></pre>
-<h3 id="1-创建实例并启动"><a href="#1-创建实例并启动" class="headerlink" title="1.创建实例并启动"></a>1.创建实例并启动</h3><pre class=" language-shell"><code class="language-shell">$ mkdir -p /mydata/redis/conf
-$ touch /mydata/redis/conf/redis.conf
-
-# 启动
-docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data \
--v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf \
--d redis redis-server /etc/redis/redis.conf</code></pre>
-<h3 id="2-客户端连接Redis"><a href="#2-客户端连接Redis" class="headerlink" title="2. 客户端连接Redis"></a>2. 客户端连接Redis</h3><pre class=" language-shell"><code class="language-shell"># 连接（交互模式）
-docker exec -it redis redis-cli
-
-# 退出
-exit</code></pre>
-<h3 id="3-配置-redis-conf-redis-conf-文件"><a href="#3-配置-redis-conf-redis-conf-文件" class="headerlink" title="3.配置 redis/conf/redis.conf 文件"></a>3.配置 <code>redis/conf/redis.conf</code> 文件</h3><pre class=" language-shell"><code class="language-shell"># 启用Redis持久化
-appendonly yes</code></pre>
-<h3 id="4-重启Redis"><a href="#4-重启Redis" class="headerlink" title="4.重启Redis"></a>4.重启Redis</h3><pre class=" language-shell"><code class="language-shell"># 查看Docker正在运行的容器
-$ sudo docker ps
-
-# 重启
-$ sudo docker restart redis
-
-# 设置自动启动
-$ sudo docker update redis --restart=always</code></pre>
+                <h2 id="1-了解Linux"><a href="#1-了解Linux" class="headerlink" title="1. 了解Linux"></a>1. 了解Linux</h2><ol>
+<li><strong>Kernel</strong>：可以直接驱动硬件</li>
+<li><strong>Shell</strong>：翻译     </li>
+<li><strong>交换空间</strong>：虚拟内存<ul>
+<li><strong>CPU</strong>：程序必须在CPU中运行</li>
+<li><strong>硬盘</strong>：</li>
+<li><strong>精灵程序/守护程序</strong>：伴随操作系统的开启而开启，伴随操作系统的关闭而关闭</li>
+<li>进入超级管理员身份 <code># sudo passwd</code></li>
+<li>普通用户 <code>$</code></li>
+</ul>
+</li>
+<li><code>Linux</code> 没有盘符概念<ul>
+<li>顶层文件夹 <code>/</code> : 目录 根目录 凡是在跟目录下构建的都是子目录</li>
+<li>路径：<ul>
+<li>相对路径： 以当前路径开头，相对点会改变    <code>./ Desktop</code></li>
+<li>绝对路径： 以根目录 / 开头的路径，相对点不会发生改变。根据自己目前的位置去确定     <code>/home/briup/Desktop</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>/</code> 有两个含义<ol>
+<li> 如果 <code>/</code> 位于<strong>开头</strong>代表<strong>绝对路径中的根目录</strong></li>
+<li> 如果 <code>/</code> 没有位于第一个位置这时/ 指的是<strong>两个路径之间的间隔</strong></li>
+</ol>
+</li>
+<li><code>dev</code> 设备</li>
+<li><code>adm</code> 管理员<ul>
+<li><code>/opt</code> 第三方软件</li>
+<li><code>/etc</code> 系统配置</li>
+<li><code>/dev</code> 计算机设备文件</li>
+<li><code>/var</code> 针对管理员使用的东西（存放可变信息）</li>
+<li><code>/kernel</code> 内核程序</li>
+<li><code>/home</code> （export）用户专有的东西</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-shell命令的构成"><a href="#2-shell命令的构成" class="headerlink" title="2. shell命令的构成"></a>2. shell命令的构成</h2><ol>
+<li><p>清屏 <code>clear</code></p>
+</li>
+<li><p>以绝对路径的形式显示当前文件夹路径（查看当前位置）<code>pwd</code></p>
+</li>
+<li><p>切换路径</p>
+<pre class=" language-shell"><code class="language-shell">cd         # 切换路径（类似于windows下面的双击进入目录或者是退出一个目录）
+    cd 绝对路径     # 不管身在何处，直接到达指定位置
+    cd 相对路径     # 先确定当前位置
+    cd .             # 当前目录（可以省略.）
+    cd ..            # 返回上一级目录
+    cd ../..        # 返回上两级目录
+    cd ~            # 快速返回家目录
+    cd /            # 返回根目录</code></pre>
+</li>
+<li><p>查看文件</p>
+<pre class=" language-shell"><code class="language-shell">ls         # 将当前或指定路径下的所有的文件+文件夹显示出来commond + options
+    ls -a     # 展示所有文件包括隐藏文件
+    ls -R     # 展示当前文件夹下的文件以及他们的子文件或文件夹
+    ls -t     # 按照文件创建的时间先后展示文件或文件夹（最后一次修改的时间）
+    # 查看文件类型
+        ls -l      # 长列表
+            # 文件类型 权限 链接号 拥有者 拥有组 文件大小
+        ls -F     # 用以下方式告诉我们文件类型
+            / # 目录文件
+            * # 可执行文件
+            none（不显示） # 文本文件
+            @ # 软连接
+        # 文件类型分类
+            d # 目录
+            - # 普通文件
+    file files     # 查看文件中的内容的类型（形式）</code></pre>
+</li>
+<li><p>文件权限</p>
+<ol>
+<li><p>任何一个文件或者文件夹都具有三种权限</p>
+<ul>
+<li><code>r</code>  读</li>
+<li><code>w</code>  写</li>
+<li><code>x </code>  执行</li>
+</ul>
+</li>
+<li><p>权限是针对三种角色进行的</p>
+<ul>
+<li><p> <code>u</code>   文件拥有者</p>
+</li>
+<li><p> <code>g</code>    文件拥有者的同组人</p>
+</li>
+<li><p> <code>o</code>    其他人</p>
+</li>
+</ul>
+</li>
+<li><p>文件或者文件夹的默认权限</p>
+<ul>
+<li>当我们不设置权限的时候，系统会给我们构建的每一个文件或者是文件夹分配一个默认权限</li>
+<li>系统默认给构建目录分配的权限 775<ul>
+<li><code>u rwx</code></li>
+<li><code>g rwx</code></li>
+<li><code>o r-x</code></li>
+</ul>
+</li>
+<li>系统给构建的文件分配的默认权限 664<ul>
+<li><code>u rw-</code></li>
+<li><code>g rw-</code></li>
+<li><code>o r--</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>更改文件或者目录的权限</p>
+<ul>
+<li>使用<code>chmod</code>，将已经构建好的文件或者目录的权限进行修改</li>
+<li>查看默认权限 <code>ls -l</code><ul>
+<li> <code>chmod</code> 谁增加或者减少赋值什么权限 文件</li>
+<li> <code>chmod u/g/a/o   +/-/=   r/w/x</code>     文件或目录</li>
+<li><code>chmod u+x，g-r，o=w file</code><ul>
+<li><code>one rwx rwx r-x</code></li>
+<li>使用数字代替一组权限<ul>
+<li><code>r 4，w 2，x 1</code></li>
+<li><code>chmod 777 two</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>通过修改配置文件的方法将系统默认分配给目录或者文件的权限进行修改</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>新建文件 <code>touch</code></p>
+<ul>
+<li>当所在目录中没有文件时touch代表的快速构建新文件</li>
+<li>当touch后面的文件存在的情况下更新文件的最后一次修改时间</li>
+<li><code>touch a.txt</code></li>
+</ul>
+</li>
+<li><p>构建目录 <code>mkdir</code></p>
+<ul>
+<li>在指定位置构建目录,既可以跟绝对路径,也可以跟相对路径</li>
+<li>需求：在已经存在的文件夹下面构建新的文件夹<ul>
+<li>希望在桌面上构建一个test目录<ul>
+<li><code>mkdir /home/briup/Desktop/test</code></li>
+<li><code>mkdir ~/Desktop/test</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>直接构建不出来，使用<code>options -p</code> 将前面不存在的目录构建出来<ul>
+<li><code>mkdir -p test/test1/test2/test3</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>复制文件或目录到指定的位置 <code>cp</code></p>
+<ul>
+<li><p><code>cp file1 file2</code> 复制file1到当前文件夹下然后重命名为file2</p>
+</li>
+<li><p>one 目录存在</p>
+<ul>
+<li><code>cp file1 one/file1</code> 复制 file1到one目录下面并且取名file1</li>
+</ul>
+</li>
+<li><p>one 目录不存在</p>
+<ul>
+<li> <code>cp file1 one</code>  复制file1到当前位置然后重命名为one</li>
+<li><code> cp file one/file2</code> 复制file1到one目录下面并且取名file2</li>
+</ul>
+</li>
+<li><p><code>cp file1 file2 file3 one</code>  将多个文件放置到one目录中<strong>不能把多个文件同时复制和更名</strong></p>
+</li>
+<li><p><code>cp -a</code> 复制文件夹到另一个文件夹</p>
+</li>
+<li><p><code>cp -i a.txt one</code> 提示是否覆盖原有文件（当文件被粘贴的位置中有一个同名文件时，默认是覆盖</p>
+<p> <code>y</code> 覆盖 <code>n</code> 结束</p>
+</li>
+<li><p><code>cp -r</code> 复制目录</p>
+</li>
+<li><p><code>more</code> 查看</p>
+</li>
+</ul>
+</li>
+<li><p>剪切  粘贴  <code>mv</code></p>
+<ul>
+<li>重命名      <code>mv file1 file2</code></li>
+<li>移动文件到目录中<ul>
+<li><code>mv file1 one</code></li>
+<li><code>mv file1 one/file1</code></li>
+<li><code>mv file1 one/fine2</code></li>
+<li><code>mv file1 file2 file3 one</code></li>
+</ul>
+</li>
+<li>移动目录到目录中<ul>
+<li><code>mv dir1 dir2</code></li>
+<li><code>mv dir1 dir2 dir3</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>rm/rmdir</code></p>
+<ul>
+<li>删除文件或者目录<ul>
+<li><code>rm</code> 可删除多个文件</li>
+<li><code>rm -i</code> 删除前给提示</li>
+</ul>
+</li>
+<li>删除目录<ul>
+<li><code>rmdir</code>  只能删除空目录</li>
+<li><code>rm -r </code>  可以删除所有目录（空或非空）</li>
+<li><code>rm -ri</code>  删除目录，删除前提示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>man commond</code>   查看某个命令的详细信息</p>
+<ul>
+<li><code>q</code>     退出帮助文档</li>
+<li><code>f</code>    往下翻一页</li>
+<li><code>b</code>    往上翻一页</li>
+<li>/字符串         快速搜索          num 查找第几个<ul>
+<li>man ls</li>
+<li>man cd</li>
+<li>man mv</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ping</code>    测试两台计算机之间网络是否连通</p>
+</li>
+<li><p>查询计算机接入网络后的ip</p>
+<ul>
+<li>Linux  Mac  unix 系统下：<code>ifconfig</code></li>
+<li>windows 系统下：<code>ipconfig</code></li>
+</ul>
+</li>
+<li><p><code>data</code>  查看当前日期时间</p>
+</li>
+<li><p><code>cal</code> 查看当前系统默认时间所在月份的日历</p>
+</li>
+<li><p><code>cat file1 [file2]</code>：将一个或者多个文件中的内容一次性全部展示出来（展示是内容）</p>
+</li>
+<li><p><code>more file1 [file2]</code> ：查看多个文件中的内容，但是一次只能展示一页（分屏显示）</p>
+<ul>
+<li><code>b</code>    回退一页</li>
+<li><code>f</code>   前进一页</li>
+<li><code>q</code>   结束查看</li>
+</ul>
+</li>
+<li><p>Linux 任务管理器 <code>htop</code></p>
+</li>
+<li><p>需求：快速清空一个文件 <code>/dev/null</code> （黑洞文件）</p>
+<ul>
+<li>空文件 <code>cat /dev/null &gt; a.txt</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="3-元字符"><a href="#3-元字符" class="headerlink" title="3. 元字符"></a>3. 元字符</h2><ul>
+<li><strong>在我们Linux中具有特殊含义的字符我们一般称为元字符</strong></li>
+</ul>
+<ol>
+<li><p><code>*</code>    匹配 0 到多个任意字符</p>
+<ul>
+<li><code>ls *Test</code> 查看后缀为 Test 的所有的内容</li>
+</ul>
+</li>
+<li><p><code>?</code>   匹配任意一个字符（一般在固定字符长度的情况下使用，指定字符数量）</p>
+</li>
+<li><p><code>;</code>   一行中多个命令的分隔，相当于回车</p>
+<ul>
+<li><code>clear;ls;pwd</code> 先执行 clear ，然后执行 ls ，最后执行 pwd</li>
+</ul>
+</li>
+<li><p><code>|</code>   （管道）把上一个命令的结果当做下一个命令的输入</p>
+</li>
+<li><p><code>&gt;</code>   将前面命令原本输出在 <code>shell</code> 终端界面上的结果重新定向到指定的文件中，但是每一次执行的都是【覆盖】操作</p>
+</li>
+<li><p><code>&gt;&gt;</code>   将原本展示在 <code>shell</code> 终端中的命令执行的结果【追加】到某一个文件中</p>
+<ul>
+<li><code>ls &gt;&gt; a.txt</code> 将 ls 命令中的结果追加到 a.txt 中</li>
+</ul>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -614,7 +757,7 @@ $ sudo docker update redis --restart=always</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://t1487700453.github.io/2020/06/05/linux/vagrant-cao-zuo-xu-ni-ji-ming-ling/">http://t1487700453.github.io/2020/06/05/linux/vagrant-cao-zuo-xu-ni-ji-ming-ling/</a>
+                    <a href="http://t1487700453.github.io/2020/11/01/linux/linux-zhong-de-ji-ben-zhi-ling/">http://t1487700453.github.io/2020/11/01/linux/linux-zhong-de-ji-ben-zhi-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -652,8 +795,8 @@ $ sudo docker update redis --restart=always</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/Linux%E6%8C%87%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux指令</span>
                                 </a>
                             
                         </div>
@@ -827,6 +970,55 @@ $ sudo docker update redis --restart=always</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/11/05/linux/vagrant-cao-zuo-xu-ni-ji-ming-ling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Vagrant 操作虚拟机">
+                        
+                        <span class="card-title">Vagrant 操作虚拟机</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Docker 操作
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/06/10/da-shu-ju/da-shu-ju-ruan-jian-pei-zhi/">
                     <div class="card-image">
                         
@@ -843,9 +1035,9 @@ $ sudo docker update redis --restart=always</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -863,55 +1055,6 @@ $ sudo docker update redis --restart=always</code></pre>
                     
                     <a href="/tags/Linux-%E5%BA%94%E7%94%A8%E5%AE%89%E8%A3%85/">
                         <span class="chip bg-color">Linux 应用安装</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/01/linux/linux-zhong-de-ji-ben-zhi-ling/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Linux 基本指令">
-                        
-                        <span class="card-title">Linux 基本指令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Linux 基本指令
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux%E6%8C%87%E4%BB%A4/">
-                        <span class="chip bg-color">Linux指令</span>
                     </a>
                     
                 </div>
