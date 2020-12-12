@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux基础">
+    <meta name="keywords" content="Git 命令">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux 基本指令 | 沧海桑田不负你</title>
+    <title>Git 命令 | 沧海桑田不负你</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -290,12 +290,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux 基本指令</h1>
+                    <h1 class="description center-align post-title">Git 命令</h1>
                 </div>
             </div>
         </div>
@@ -412,8 +412,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux%E6%8C%87%E4%BB%A4/">
-                                <span class="chip bg-color">Linux指令</span>
+                            <a href="/tags/Git/">
+                                <span class="chip bg-color">Git</span>
                             </a>
                         
                     </div>
@@ -424,8 +424,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/Git/" class="post-category">
+                                Git
                             </a>
                         
                     </div>
@@ -437,7 +437,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-01
+                    2020-11-15
                 </div>
                 
 
@@ -453,285 +453,214 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-了解Linux"><a href="#1-了解Linux" class="headerlink" title="1. 了解Linux"></a>1. 了解Linux</h2><ol>
-<li><strong>Kernel</strong>：可以直接驱动硬件</li>
-<li><strong>Shell</strong>：翻译     </li>
-<li><strong>交换空间</strong>：虚拟内存<ul>
-<li><strong>CPU</strong>：程序必须在CPU中运行</li>
-<li><strong>硬盘</strong>：</li>
-<li><strong>精灵程序/守护程序</strong>：伴随操作系统的开启而开启，伴随操作系统的关闭而关闭</li>
-<li>进入超级管理员身份 <code># sudo passwd</code></li>
-<li>普通用户 <code>$</code></li>
+                <h1 id="Git-命令"><a href="#Git-命令" class="headerlink" title="Git 命令"></a>Git 命令</h1><h2 id="1、新建仓库-mkdir-WeChat"><a href="#1、新建仓库-mkdir-WeChat" class="headerlink" title="1、新建仓库 mkdir WeChat"></a>1、新建仓库 <code>mkdir WeChat</code></h2><h2 id="2、初始化-git-init-，-会生成-git-隐藏目录"><a href="#2、初始化-git-init-，-会生成-git-隐藏目录" class="headerlink" title="2、初始化 git init ， 会生成 .git/ 隐藏目录"></a>2、初始化 <code>git init</code> ， 会生成 <code>.git/</code> 隐藏目录</h2><h3 id="Git的结构：工作区（写代码）-git-add-》暂存区（临时存储）-git-commit-》本地库（历史版本）-》远程库"><a href="#Git的结构：工作区（写代码）-git-add-》暂存区（临时存储）-git-commit-》本地库（历史版本）-》远程库" class="headerlink" title="Git的结构：工作区（写代码）  ==git add==》暂存区（临时存储） ==git commit==》本地库（历史版本） ==》远程库"></a>Git的结构：工作区（写代码）  ==<code>git add</code>==》暂存区（临时存储） ==<code>git commit</code>==》本地库（历史版本） ==》远程库</h3><blockquote>
+<p>注意：.git 目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改。</p>
+</blockquote>
+<h2 id="3、设置签名"><a href="#3、设置签名" class="headerlink" title="3、设置签名"></a>3、设置签名</h2><ol>
+<li>形式<ul>
+<li>用户名：tom</li>
+<li>Email 地址（可以不存在）：<a href="mailto:thd@briup.com">thd@briup.com</a></li>
 </ul>
 </li>
-<li><code>Linux</code> 没有盘符概念<ul>
-<li>顶层文件夹 <code>/</code> : 目录 根目录 凡是在跟目录下构建的都是子目录</li>
-<li>路径：<ul>
-<li>相对路径： 以当前路径开头，相对点会改变    <code>./ Desktop</code></li>
-<li>绝对路径： 以根目录 / 开头的路径，相对点不会发生改变。根据自己目前的位置去确定     <code>/home/briup/Desktop</code></li>
+<li>作用：区分不同开发人员的身份</li>
+<li>辨析：这里设置的<strong>签名</strong>和<strong>登录远程库</strong>（代码托管中心）的账号、密码<strong>没有任何关系</strong></li>
+<li><strong>命令</strong><ul>
+<li>项目级别（项目级别）：仅在当前本地库范围内有效<ul>
+<li><code>git config user.name tom_pro</code></li>
+<li><code>git config user.email thd_pro@briup.com</code></li>
+<li>信息保存的位置：<code>./.git/config </code>文件，查看命令 <code>cat .git/config</code></li>
+</ul>
+</li>
+<li>系统用户级别：登录当前操作系统的用户范围<ul>
+<li><code>git config --global user.name tom_glb</code></li>
+<li><code>git config --global user.email thd_glb@briup.com</code></li>
+<li>信息保存位置<code>~/.git/config </code>文件，<code>~</code>代表家目录<ul>
+<li>管道查询当前目录文件 <code>ls -la|less</code></li>
+<li>查看命令<code>cat ~/.gitconfig</code></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>/</code> 有两个含义<ol>
-<li> 如果 <code>/</code> 位于<strong>开头</strong>代表<strong>绝对路径中的根目录</strong></li>
-<li> 如果 <code>/</code> 没有位于第一个位置这时/ 指的是<strong>两个路径之间的间隔</strong></li>
+<li>级别优先级<ul>
+<li>就近原则：项目级别优先于系统用户级别，二者都存在时采用<strong>项目级别</strong>的签名</li>
+<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
+<li>二者至少有一个存在</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
+<h2 id="4、基本操作"><a href="#4、基本操作" class="headerlink" title="4、基本操作"></a>4、基本操作</h2><ol>
+<li>状态查看操作<ul>
+<li><code>git status</code> 查看工作区、暂存区状态</li>
+</ul>
 </li>
-<li><code>dev</code> 设备</li>
-<li><code>adm</code> 管理员<ul>
-<li><code>/opt</code> 第三方软件</li>
-<li><code>/etc</code> 系统配置</li>
-<li><code>/dev</code> 计算机设备文件</li>
-<li><code>/var</code> 针对管理员使用的东西（存放可变信息）</li>
-<li><code>/kernel</code> 内核程序</li>
-<li><code>/home</code> （export）用户专有的东西</li>
+<li>添加操作<ul>
+<li><code>git add [file name]</code> 将工作区的“新建/修改”添加到暂存区 </li>
+</ul>
+</li>
+<li>提交操作<ul>
+<li><code>git commit -m "commit message" [file name]</code> 将暂存区的内容提交到本地库</li>
+</ul>
+</li>
+<li>查看历史记录操作<ul>
+<li><code>git log</code>：多屏显示控制方式： <strong>空格</strong>向下翻页 、<strong>b</strong> 向上翻页 、<strong>q</strong> 退出 </li>
+<li><code>git log --pretty=oneline</code></li>
+<li><code>git log --oneline</code></li>
+<li><code>git reflog</code>：HEAD@{移动到当前版本需要多少步} </li>
+</ul>
+</li>
+<li>历史记录的<strong>前进后退</strong> ：<ul>
+<li>基于索引值操作[推荐]：<code> git reset --hard [局部索引值]</code></li>
+<li>使用<code>^</code>符号：只能后退<ul>
+<li><code>git reset --hard HEAD^</code>，有几个 <code>^</code> 就往前后退几步 </li>
+</ul>
+</li>
+<li>使用<code>~</code>符号：只能后退<ul>
+<li><code>git reset --hard HEAD~n</code>，后退n步，使用时<code>~</code>后面的 n 用数字代替</li>
+</ul>
+</li>
+<li><code>reset</code> 命令的三个参数对比，查看命令用法 <code>git help reset</code><ul>
+<li><code>--soft</code> 参数<ul>
+<li>仅仅在本地库移动 <strong>HEAD</strong> 指针</li>
+</ul>
+</li>
+<li><code>--mixed</code> 参数<ul>
+<li>在本地库移动 <strong>HEAD</strong> 指针</li>
+<li>重置暂存区</li>
+</ul>
+</li>
+<li><code>--hard</code> 参数<ul>
+<li>在本地库移动 <strong>HEAD</strong> 指针</li>
+<li>重置暂存区</li>
+<li>重置工作区</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除文件并找回<ul>
+<li>前提：删除前，文件存在时的状态提交到了本地库</li>
+<li>操作：<code>git reset -hard [指针位置]</code><ul>
+<li>删除操作已经提交到本地库：指针位置指向历史记录</li>
+<li>删除操作尚未提交到本地库：指针位置使用 <strong>HEAD</strong>（当前状态）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>比较文件差异<ul>
+<li><code>git diff [文件名]</code><ul>
+<li> 将工作区中的文件和暂存区进行比较</li>
+</ul>
+</li>
+<li><code>git diff [本地库中的历史版本][文件名]</code><ul>
+<li> 将工作区中的文件和本地库历史记录比较</li>
+</ul>
+</li>
+<li> 不带文件名比较多个文件</li>
 </ul>
 </li>
 </ol>
-<h2 id="2-shell命令的构成"><a href="#2-shell命令的构成" class="headerlink" title="2. shell命令的构成"></a>2. shell命令的构成</h2><ol>
-<li><p>清屏 <code>clear</code></p>
+<h2 id="5-分支管理"><a href="#5-分支管理" class="headerlink" title="5. 分支管理"></a>5. 分支管理</h2><h3 id="5-1-什么是分支"><a href="#5-1-什么是分支" class="headerlink" title="5.1 什么是分支"></a>5.1 什么是分支</h3><p>在版本控制过程中，使用多条线同时推进多个任务。</p>
+<ul>
+<li><code>master</code>：主分支</li>
+<li><code>hot_fix</code>：热修改</li>
+<li><code>feature_game</code>：分支</li>
+</ul>
+<h3 id="5-2-分支的好处"><a href="#5-2-分支的好处" class="headerlink" title="5.2 分支的好处"></a>5.2 分支的好处</h3><ul>
+<li><p>同时并行推进多个功能开发，提高开发效率</p>
 </li>
-<li><p>以绝对路径的形式显示当前文件夹路径（查看当前位置）<code>pwd</code></p>
+<li><p>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任 </p>
+<p>何影响。失败的分支删除重新开始即可。</p>
 </li>
-<li><p>切换路径</p>
-<pre class=" language-shell"><code class="language-shell">cd         # 切换路径（类似于windows下面的双击进入目录或者是退出一个目录）
-    cd 绝对路径     # 不管身在何处，直接到达指定位置
-    cd 相对路径     # 先确定当前位置
-    cd .             # 当前目录（可以省略.）
-    cd ..            # 返回上一级目录
-    cd ../..        # 返回上两级目录
-    cd ~            # 快速返回家目录
-    cd /            # 返回根目录</code></pre>
+</ul>
+<h3 id="5-3-分支操作"><a href="#5-3-分支操作" class="headerlink" title="5.3 分支操作"></a>5.3 分支操作</h3><ol>
+<li><p>创建分支 <code>git branch [分支名]</code></p>
 </li>
-<li><p>查看文件</p>
-<pre class=" language-shell"><code class="language-shell">ls         # 将当前或指定路径下的所有的文件+文件夹显示出来commond + options
-    ls -a     # 展示所有文件包括隐藏文件
-    ls -R     # 展示当前文件夹下的文件以及他们的子文件或文件夹
-    ls -t     # 按照文件创建的时间先后展示文件或文件夹（最后一次修改的时间）
-    # 查看文件类型
-        ls -l      # 长列表
-            # 文件类型 权限 链接号 拥有者 拥有组 文件大小
-        ls -F     # 用以下方式告诉我们文件类型
-            / # 目录文件
-            * # 可执行文件
-            none（不显示） # 文本文件
-            @ # 软连接
-        # 文件类型分类
-            d # 目录
-            - # 普通文件
-    file files     # 查看文件中的内容的类型（形式）</code></pre>
+<li><p>查看分支 <code>git brabch -v</code></p>
 </li>
-<li><p>文件权限</p>
+<li><p>切换分支 <code>git checkout [分支名]</code></p>
+</li>
+<li><p>合并分支</p>
 <ol>
-<li><p>任何一个文件或者文件夹都具有三种权限</p>
-<ul>
-<li><code>r</code>  读</li>
-<li><code>w</code>  写</li>
-<li><code>x </code>  执行</li>
-</ul>
-</li>
-<li><p>权限是针对三种角色进行的</p>
-<ul>
-<li><p> <code>u</code>   文件拥有者</p>
-</li>
-<li><p> <code>g</code>    文件拥有者的同组人</p>
-</li>
-<li><p> <code>o</code>    其他人</p>
-</li>
-</ul>
-</li>
-<li><p>文件或者文件夹的默认权限</p>
-<ul>
-<li>当我们不设置权限的时候，系统会给我们构建的每一个文件或者是文件夹分配一个默认权限</li>
-<li>系统默认给构建目录分配的权限 775<ul>
-<li><code>u rwx</code></li>
-<li><code>g rwx</code></li>
-<li><code>o r-x</code></li>
-</ul>
-</li>
-<li>系统给构建的文件分配的默认权限 664<ul>
-<li><code>u rw-</code></li>
-<li><code>g rw-</code></li>
-<li><code>o r--</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>更改文件或者目录的权限</p>
-<ul>
-<li>使用<code>chmod</code>，将已经构建好的文件或者目录的权限进行修改</li>
-<li>查看默认权限 <code>ls -l</code><ul>
-<li> <code>chmod</code> 谁增加或者减少赋值什么权限 文件</li>
-<li> <code>chmod u/g/a/o   +/-/=   r/w/x</code>     文件或目录</li>
-<li><code>chmod u+x，g-r，o=w file</code><ul>
-<li><code>one rwx rwx r-x</code></li>
-<li>使用数字代替一组权限<ul>
-<li><code>r 4，w 2，x 1</code></li>
-<li><code>chmod 777 two</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>通过修改配置文件的方法将系统默认分配给目录或者文件的权限进行修改</li>
-</ul>
-</li>
+<li>切换到接受修改的分支（被合并，增加新内容）上 <code>git checkout [被合并分支名]</code></li>
+<li>执行 <code>merge</code> 命令 <code>git merge [有新内容分支名]</code></li>
 </ol>
 </li>
-<li><p>新建文件 <code>touch</code></p>
-<ul>
-<li>当所在目录中没有文件时touch代表的快速构建新文件</li>
-<li>当touch后面的文件存在的情况下更新文件的最后一次修改时间</li>
-<li><code>touch a.txt</code></li>
-</ul>
-</li>
-<li><p>构建目录 <code>mkdir</code></p>
-<ul>
-<li>在指定位置构建目录,既可以跟绝对路径,也可以跟相对路径</li>
-<li>需求：在已经存在的文件夹下面构建新的文件夹<ul>
-<li>希望在桌面上构建一个test目录<ul>
-<li><code>mkdir /home/briup/Desktop/test</code></li>
-<li><code>mkdir ~/Desktop/test</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>直接构建不出来，使用<code>options -p</code> 将前面不存在的目录构建出来<ul>
-<li><code>mkdir -p test/test1/test2/test3</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>复制文件或目录到指定的位置 <code>cp</code></p>
-<ul>
-<li><p><code>cp file1 file2</code> 复制file1到当前文件夹下然后重命名为file2</p>
-</li>
-<li><p>one 目录存在</p>
-<ul>
-<li><code>cp file1 one/file1</code> 复制 file1到one目录下面并且取名file1</li>
-</ul>
-</li>
-<li><p>one 目录不存在</p>
-<ul>
-<li> <code>cp file1 one</code>  复制file1到当前位置然后重命名为one</li>
-<li><code> cp file one/file2</code> 复制file1到one目录下面并且取名file2</li>
-</ul>
-</li>
-<li><p><code>cp file1 file2 file3 one</code>  将多个文件放置到one目录中<strong>不能把多个文件同时复制和更名</strong></p>
-</li>
-<li><p><code>cp -a</code> 复制文件夹到另一个文件夹</p>
-</li>
-<li><p><code>cp -i a.txt one</code> 提示是否覆盖原有文件（当文件被粘贴的位置中有一个同名文件时，默认是覆盖</p>
-<p> <code>y</code> 覆盖 <code>n</code> 结束</p>
-</li>
-<li><p><code>cp -r</code> 复制目录</p>
-</li>
-<li><p><code>more</code> 查看</p>
-</li>
-</ul>
-</li>
-<li><p>剪切  粘贴  <code>mv</code></p>
-<ul>
-<li>重命名      <code>mv file1 file2</code></li>
-<li>移动文件到目录中<ul>
-<li><code>mv file1 one</code></li>
-<li><code>mv file1 one/file1</code></li>
-<li><code>mv file1 one/fine2</code></li>
-<li><code>mv file1 file2 file3 one</code></li>
-</ul>
-</li>
-<li>移动目录到目录中<ul>
-<li><code>mv dir1 dir2</code></li>
-<li><code>mv dir1 dir2 dir3</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>rm/rmdir</code></p>
-<ul>
-<li>删除文件或者目录<ul>
-<li><code>rm</code> 可删除多个文件</li>
-<li><code>rm -i</code> 删除前给提示</li>
-</ul>
-</li>
-<li>删除目录<ul>
-<li><code>rmdir</code>  只能删除空目录</li>
-<li><code>rm -r </code>  可以删除所有目录（空或非空）</li>
-<li><code>rm -ri</code>  删除目录，删除前提示</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>man commond</code>   查看某个命令的详细信息</p>
-<ul>
-<li><code>q</code>     退出帮助文档</li>
-<li><code>f</code>    往下翻一页</li>
-<li><code>b</code>    往上翻一页</li>
-<li>/字符串         快速搜索          num 查找第几个<ul>
-<li>man ls</li>
-<li>man cd</li>
-<li>man mv</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>ping</code>    测试两台计算机之间网络是否连通</p>
-</li>
-<li><p>查询计算机接入网络后的ip</p>
-<ul>
-<li>Linux  Mac  unix 系统下：<code>ifconfig</code></li>
-<li>windows 系统下：<code>ipconfig</code></li>
-</ul>
-</li>
-<li><p><code>data</code>  查看当前日期时间</p>
-</li>
-<li><p><code>cal</code> 查看当前系统默认时间所在月份的日历</p>
-</li>
-<li><p><code>cat file1 [file2]</code>：将一个或者多个文件中的内容一次性全部展示出来（展示是内容）</p>
-</li>
-<li><p><code>more file1 [file2]</code> ：查看多个文件中的内容，但是一次只能展示一页（分屏显示）</p>
-<ul>
-<li><code>b</code>    回退一页</li>
-<li><code>f</code>   前进一页</li>
-<li><code>q</code>   结束查看</li>
-</ul>
-</li>
-<li><p>Linux 任务管理器 <code>htop</code></p>
-</li>
-<li><p>需求：快速清空一个文件 <code>/dev/null</code> （黑洞文件）</p>
-<ul>
-<li>空文件 <code>cat /dev/null &gt; a.txt</code></li>
-</ul>
-</li>
-</ol>
-<h2 id="3-元字符"><a href="#3-元字符" class="headerlink" title="3. 元字符"></a>3. 元字符</h2><ul>
-<li><strong>在我们Linux中具有特殊含义的字符我们一般称为元字符</strong></li>
-</ul>
+<li><p>解决冲突</p>
 <ol>
-<li><p><code>*</code>    匹配 0 到多个任意字符</p>
+<li><p>冲突的表现 </p>
+</li>
+<li><p>冲突的解决</p>
 <ul>
-<li><code>ls *Test</code> 查看后缀为 Test 的所有的内容</li>
-</ul>
+<li><p>第一步：编辑文件，删除特殊符号</p>
 </li>
-<li><p><code>?</code>   匹配任意一个字符（一般在固定字符长度的情况下使用，指定字符数量）</p>
+<li><p>第二步：把文件修改到满意的程度，保存退出</p>
 </li>
-<li><p><code>;</code>   一行中多个命令的分隔，相当于回车</p>
-<ul>
-<li><code>clear;ls;pwd</code> 先执行 clear ，然后执行 ls ，最后执行 pwd</li>
-</ul>
+<li><p>第三步：<code>git add [文件名]</code> </p>
 </li>
-<li><p><code>|</code>   （管道）把上一个命令的结果当做下一个命令的输入</p>
+<li><p>第四步：<code>git commit -m "日志信息"</code></p>
+<blockquote>
+<p>注意：此时 commit 一定不能带具体文件名</p>
+</blockquote>
 </li>
-<li><p><code>&gt;</code>   将前面命令原本输出在 <code>shell</code> 终端界面上的结果重新定向到指定的文件中，但是每一次执行的都是【覆盖】操作</p>
-</li>
-<li><p><code>&gt;&gt;</code>   将原本展示在 <code>shell</code> 终端中的命令执行的结果【追加】到某一个文件中</p>
-<ul>
-<li><code>ls &gt;&gt; a.txt</code> 将 ls 命令中的结果追加到 a.txt 中</li>
 </ul>
 </li>
 </ol>
+</li>
+</ol>
+<h2 id="6-远程仓库"><a href="#6-远程仓库" class="headerlink" title="6. 远程仓库"></a>6. 远程仓库</h2><h3 id="6-1-创建远程库地址别名"><a href="#6-1-创建远程库地址别名" class="headerlink" title="6.1 创建远程库地址别名"></a>6.1 创建远程库地址别名</h3><ol>
+<li>查看当前所有远程地址别名 <code>git remote -v</code></li>
+<li>创建远程库别名 <code>git remote add [别名] [远程地址]</code><ul>
+<li>推送：<code>push</code></li>
+<li>获取：<code>fetch</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="6-2-推送"><a href="#6-2-推送" class="headerlink" title="6.2 推送"></a>6.2 推送</h3><ul>
+<li><code>git push [别名] [分支名]</code></li>
+</ul>
+<h3 id="6-3-克隆"><a href="#6-3-克隆" class="headerlink" title="6.3 克隆"></a>6.3 克隆</h3><ol>
+<li>命令：<code>git origin [远程地址]</code><ul>
+<li>克隆 <code> git clone https://github.com/T1487700453/huasan.git</code></li>
+</ul>
+</li>
+<li>效果： <ul>
+<li>完整的把远程库下载到本地</li>
+<li>创建 origin 远程地址别名</li>
+<li>初始化本地库</li>
+</ul>
+</li>
+</ol>
+<h3 id="6-4-拉取"><a href="#6-4-拉取" class="headerlink" title="6.4 拉取"></a>6.4 拉取</h3><ul>
+<li><code>pull = fetch + merge</code></li>
+<li><code>git fetch [远程库地址别名] [远程分支名]</code></li>
+<li><code>git merge [远程库地址别名/远程分支名]</code></li>
+<li><code>git pull [远程库地址别名] [远程分支名]</code></li>
+</ul>
+<h3 id="6-5-解决冲突"><a href="#6-5-解决冲突" class="headerlink" title="6.5 解决冲突"></a>6.5 解决冲突</h3><p>要点：</p>
+<ul>
+<li>如果不是基于 GitHub 远程库的最新版所做的修改，不能推送，必须先拉取。</li>
+<li>拉取下来后如果进入冲突状态，则按照“分支冲突解决”操作解决即可。</li>
+</ul>
+<blockquote>
+<p>GitHub 官网样例文件： </p>
+<p>​    <a target="_blank" rel="noopener" href="https://github.com/github/gitignore">https://github.com/github/gitignore</a></p>
+<p>​    <a target="_blank" rel="noopener" href="https://github.com/github/gitignore/blob/master/Java.gitignore">https://github.com/github/gitignore/blob/master/Java.gitignore</a></p>
+<p>在 <code>~/.gitconfig</code>  文件中引入要忽略的文件</p>
+<pre class=" language-gitconfig"><code class="language-gitconfig">[core]
+    excludesfile = C:/Users/ASUS/Java.gitignore</code></pre>
+<p>注意：这里路径中一定要使用“/”，不能使用 “\”</p>
+</blockquote>
+<h2 id="7-与码云建立免密连接"><a href="#7-与码云建立免密连接" class="headerlink" title="7. 与码云建立免密连接"></a>7. 与码云建立免密连接</h2><h3 id="7-1-在本机生成密钥"><a href="#7-1-在本机生成密钥" class="headerlink" title="7.1 在本机生成密钥"></a>7.1 在本机生成密钥</h3><pre class=" language-shell"><code class="language-shell">$ ssh-keygen -t rsa -C "1487700453@qq.com"
+
+# 查看生成的密钥
+$ cat ~/.ssh/id_rsa.pub
+
+# 将 id_rsa.pub 中的内容添加到 码云的 SSH 公钥中
+
+$ ssh -T git@gitee.com</code></pre>
 
             </div>
             <hr/>
@@ -757,7 +686,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://t1487700453.github.io/2020/11/01/linux/linux-zhong-de-ji-ben-zhi-ling/">http://t1487700453.github.io/2020/11/01/linux/linux-zhong-de-ji-ben-zhi-ling/</a>
+                    <a href="http://t1487700453.github.io/2020/11/15/git/git-ming-ling/">http://t1487700453.github.io/2020/11/15/git/git-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -795,8 +724,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux%E6%8C%87%E4%BB%A4/">
-                                    <span class="chip bg-color">Linux指令</span>
+                                <a href="/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
                                 </a>
                             
                         </div>
@@ -966,84 +895,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/05/linux/vagrant-cao-zuo-xu-ni-ji-ming-ling/">
+                <a href="/2020/11/15/git/git-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Vagrant 操作虚拟机">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Git 命令">
                         
-                        <span class="card-title">Vagrant 操作虚拟机</span>
+                        <span class="card-title">Git 命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Docker 操作
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/11/01/linux/linux-zhong-de-ji-ben-zhi-ling/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Linux 基本指令">
-                        
-                        <span class="card-title">Linux 基本指令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Linux 基本指令
+                            Git 使用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/Git/" class="post-category">
+                                    Git
                                 </a>
                             
                             
@@ -1054,8 +935,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux%E6%8C%87%E4%BB%A4/">
-                        <span class="chip bg-color">Linux指令</span>
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/11/qian-duan-ye-mian/jsp-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="JSP总结">
+                        
+                        <span class="card-title">JSP总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            jsp相关知识点的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/" class="post-category">
+                                    前端页面
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/">
+                        <span class="chip bg-color">动态页面</span>
                     </a>
                     
                 </div>
